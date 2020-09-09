@@ -10,6 +10,9 @@ $color_flamingo: #ea5d2f;
 $color_maroon_flush: #c62456;
 $color_tuna: #2e2e36;
 
+$logo_cupid: #F9BDD0;
+$logo_mulberry: #cc4c80;
+
 :root {
     --bianca: #{$color_bianca};
     --bizarre: #{$color_bizarre};
@@ -22,4 +25,7 @@ $color_tuna: #2e2e36;
     --flamingo: #{$color_flamingo};
     --maroon_flush: #{$color_maroon_flush};
     --tuna: #{$color_tuna};
+
+    --cupid: #{$logo_cupid};
+    --mulberry: #{$logo_mulberry};
 }

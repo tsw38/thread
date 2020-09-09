@@ -18,6 +18,8 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
+  "traceResolution": true,
+  "sourceMap": true,
   "types": ["cypress"],
   "include": [
     "next-env.d.ts",
