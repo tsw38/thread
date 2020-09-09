@@ -2,11 +2,12 @@ import React from 'react';
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/react/types-6-0';
 import className from 'classnames';
-import Ribbon from './Ribbon';
+import RibbonComponent from './Ribbon';
+import NavigationComponent from './Navigation';
 
 export default {
-  title: 'Navigation/Ribbon',
-  component: Ribbon,
+  title: 'Navigation',
+  component: NavigationComponent,
   argTypes: {
         color: {
             control: {
@@ -18,8 +19,12 @@ export default {
     },
 } as Meta;
 
-export const Default = (args) => {
-    return <Ribbon {...args} />
+export const Navigation = args => {
+    return <NavigationComponent{...args} />
+}
+
+export const Ribbon = (args) => {
+    return <RibbonComponent {...args} />
 }
 
 

@@ -1,13 +1,14 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import './ribbon.scss';
+import './Ribbon.scss';
 
 export interface RibbonProps {
+    children?: React.ReactNode,
   /**
    * Ribbon color
    */
-    color: 'manz' | 'atomic_tangerine' | 'tickle_me_pink' | 'tapestry' | 'flush' | 'flamingo' | 'corduroy' | 'tuna'
+    color?: 'bizarre' | 'manz' | 'atomic_tangerine' | 'tickle_me_pink' | 'tapestry' | 'flush' | 'flamingo' | 'corduroy' | 'tuna'
 }
 
 /**
@@ -15,13 +16,14 @@ export interface RibbonProps {
  */
 const Ribbon: React.FC<RibbonProps> = ({
   color = 'tapestry',
+  children,
   ...props
 }) => {
   return (
     <div className={classNames(
         'Ribbon',
         `Ribbon--${color}`
-    )}></div>
+    )}>{children}</div>
   );
 };
 

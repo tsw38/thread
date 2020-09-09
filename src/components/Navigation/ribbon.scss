@@ -1,7 +1,11 @@
 .Ribbon {
-    height: 20px;
+    min-height: 20px;
     padding: 0.25rem 0;
     width: 100%;
+
+    &--bizarre {
+        background-color: var(--bizarre);
+    }
 
     &--manz {
         background-color: var(--manz);

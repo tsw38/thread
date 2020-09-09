@@ -7,8 +7,8 @@ module.exports = {
   ],
   "addons": [
     "@storybook/addon-links",
-    '@storybook/addon-controls',
     "@storybook/addon-essentials",
+    '@storybook/addon-controls',
   ],
   webpackFinal: async (config, { configType }) => {
     //   console.warn({modules: config.resolve.modules})
