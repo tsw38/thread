@@ -9,3 +9,17 @@ $color_nugget: #c6931d;
 $color_flamingo: #ea5d2f;
 $color_maroon_flush: #c62456;
 $color_tuna: #2e2e36;
+
+:root {
+    --bianca: #{$color_bianca};
+    --bizarre: #{$color_bizarre};
+    --manz: #{$color_manz};
+    --atomic_tangerine: #{$color_atomic_tangerine};
+    --tickle_me_pink: #{$color_tickle_me_pink};
+    --corduroy: #{$color_corduroy};
+    --tapestry: #{$color_tapestry};
+    --nugget: #{$color_nugget};
+    --flamingo: #{$color_flamingo};
+    --maroon_flush: #{$color_maroon_flush};
+    --tuna: #{$color_tuna};
+}

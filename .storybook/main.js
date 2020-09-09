@@ -7,7 +7,8 @@ module.exports = {
   ],
   "addons": [
     "@storybook/addon-links",
-    "@storybook/addon-essentials"
+    '@storybook/addon-controls',
+    "@storybook/addon-essentials",
   ],
   webpackFinal: async (config, { configType }) => {
     //   console.warn({modules: config.resolve.modules})
@@ -29,11 +30,7 @@ module.exports = {
       include: path.resolve(__dirname, '../'),
     });
 
-    config.module.rules.push({
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-        loaders: ['file-loader'],
-        include: path.resolve(__dirname, '../public/fonts')
-    });
+    config.module.rules.push();
 
     // Return the altered config
     return config;
