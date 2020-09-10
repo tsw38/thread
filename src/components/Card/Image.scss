@@ -1,5 +1,4 @@
 @import '../../styles/globals';
-
 .ImageCard {
     display: block;
 
@@ -24,6 +23,8 @@
         }
 
         figcaption {
+            @include transition(opacity);
+
             display: flex;
             position: absolute;
             top: 0;
@@ -39,29 +40,14 @@
             padding: 1rem;
             border: 0.5rem solid var(--theme-primary);
             opacity: 0;
-            transition: opacity 250ms ease;
             user-select: none;
 
             &:hover {
                 opacity: 1;
             }
         }
-
-        hr {
-            background-color: var(--tuna);
-            height: 2px;
-            width: 100%;
-            border: none;
-
-            &:first-of-type {
-                margin-top: 2rem;
-            }
-            &:last-of-type {
-                margin-bottom: 3rem;
-            }
-        }
     }
-.Logo {
+    .Logo {
         width: 3.5rem;
     }
 
@@ -71,6 +57,11 @@
         font-style: italic;
         font-weight: bold;
         padding: 1rem 0;
+        text-align: center;
+        width: 100%;
+        margin: 2rem 0 3rem;
+        border-top: 2px solid var(--tuna);
+        border-bottom: 2px solid var(--tuna);
     }
 
     .Designer {

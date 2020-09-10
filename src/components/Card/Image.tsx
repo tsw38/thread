@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
+import Link from '../common/Link';
 import classNames from 'classnames';
 
 import './Image.scss';
@@ -46,9 +46,7 @@ const ImageCard: React.FC<ImageCardProps> = ({
                     <img {...img} />
                     <figcaption>
                         <Logo mono color="tapestry" />
-                        <hr />
                         <h2 className="Title">{title}</h2>
-                        <hr />
                         <p className="Designer">
                             Designed by
                             <span>{author}</span>

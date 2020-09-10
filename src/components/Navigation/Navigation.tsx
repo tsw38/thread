@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
+import Link from '../common/Link';
 import classNames from 'classnames';
 
 import './Navigation.scss';
@@ -11,12 +11,12 @@ export interface Navigation {
 }
 
 const Navigation: React.FC<Navigation> = ({
-    color,
+    color = 'tapestry',
     ...props
 }) => {
 	return (
         <div className={classNames('Navigation')}>
-            <Ribbon color={color || 'tapestry'} />
+            <Ribbon color={color} />
             <Ribbon color="bizarre">
                 <nav className="bar">
                     <Link href="/">

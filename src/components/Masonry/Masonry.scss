@@ -1,0 +1,16 @@
+@import '../../styles/globals';
+
+.Masonry {
+    opacity: 1;
+    @include transition(opacity);
+
+    > * {
+        padding: 0.25rem;
+    }
+
+    &-hide {
+        opacity: 0;
+        pointer-events: none;
+        user-select: none;
+    }
+}
