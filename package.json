@@ -8,7 +8,8 @@
     "start": "next start",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "create-component": "ENV=dev node ./config/create-component"
   },
   "dependencies": {
     "classnames": "^2.2.6",
@@ -27,8 +28,11 @@
     "@types/node": "^14.6.4",
     "@types/react": "^16.9.49",
     "babel-loader": "^8.1.0",
+    "colors": "^1.4.0",
+    "command-line-args": "^5.1.1",
     "cypress": "^5.1.0",
     "file-loader": "^6.1.0",
+    "mkdirp": "^1.0.4",
     "prettier": "^2.1.1",
     "react-is": "^16.13.1",
     "sass": "^1.26.10",
