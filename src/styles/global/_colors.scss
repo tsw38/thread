@@ -13,6 +13,8 @@ $color_tuna: #2e2e36;
 $logo_cupid: #F9BDD0;
 $logo_mulberry: #cc4c80;
 
+$theme_primary: $color_tapestry;
+
 :root {
     --bianca: #{$color_bianca};
     --bizarre: #{$color_bizarre};
@@ -28,4 +30,6 @@ $logo_mulberry: #cc4c80;
 
     --cupid: #{$logo_cupid};
     --mulberry: #{$logo_mulberry};
+
+    --theme-primary: #{$color_tapestry};
 }

@@ -1,0 +1,85 @@
+@import '../../styles/globals';
+
+.ImageCard {
+    display: block;
+
+    figure {
+        width: 16rem;
+        position:relative;
+        overflow: hidden;
+        border-radius: 0.25rem;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &:focus figcaption {
+            opacity: 1;
+        }
+
+        img {
+            width: 100%;
+            z-index: 0;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        figcaption {
+            display: flex;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 10;
+            height: 100%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba($color_bizarre, 0.8);
+            padding: 1rem;
+            border: 0.5rem solid var(--theme-primary);
+            opacity: 0;
+            transition: opacity 250ms ease;
+            user-select: none;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        hr {
+            background-color: var(--tuna);
+            height: 2px;
+            width: 100%;
+            border: none;
+
+            &:first-of-type {
+                margin-top: 2rem;
+            }
+            &:last-of-type {
+                margin-bottom: 3rem;
+            }
+        }
+    }
+.Logo {
+        width: 3.5rem;
+    }
+
+    .Title {
+        font-size: 2rem;
+        font-family: 'Overpass';
+        font-style: italic;
+        font-weight: bold;
+        padding: 1rem 0;
+    }
+
+    .Designer {
+        font-size: 0.875rem;
+        text-align: center;
+        line-height: 1.25;
+
+        span {
+            display: block;
+        }
+    }
+}
