@@ -1,18 +1,20 @@
 @import '../../../styles/globals';
 
 $white: #f0f0f0;
+$red: #d80027;
+$yellow: #ffda44;
 
 .Flag {
     width: 3rem;
 
     &--china {
-        .path-0 { fill: #d80027;}
-        .path-1 { fill: #ffda44; }
+        .path-0 { fill: $red;}
+        .path-1 { fill: $yellow; }
     }
     &--france {
         .path-0 {fill: $white;}
         .path-1 {fill: #0052b4}
-        .path-2 {fill: #d80027}
+        .path-2 {fill: $red}
     }
 
     &--greece {
@@ -24,8 +26,8 @@ $white: #f0f0f0;
     }
 
     &--germany {
-        .path-0 {fill: #d80027}
-        .path-2 {fill: #ffda44}
+        .path-0 {fill: $red}
+        .path-2 {fill: $yellow}
     }
 
     &--ireland {
@@ -37,25 +39,25 @@ $white: #f0f0f0;
     &--italy {
         .path-0 {fill: #6da544;}
         .path-1 {fill: $white;}
-        .path-2 {fill: #d80027;}
+        .path-2 {fill: $red;}
     }
 
     &--japan {
         .path-0 {fill: $white;}
-        .path-1 {fill: #d80027;}
+        .path-1 {fill: $red;}
     }
 
     &--poland {
         .path-0,
         .path-1 {fill: $white;}
-        .path-2 {fill: #d80027;}
+        .path-2 {fill: $red;}
     }
 
     &--portugal {
         .path-0,
-        .path-3 {fill: #d80027;}
+        .path-3 {fill: $red;}
         .path-1 {fill: #6da544;}
-        .path-2 {fill: #ffda44;}
+        .path-2 {fill: $yellow;}
         .path-4 {fill: $white;}
     }
 
@@ -63,50 +65,42 @@ $white: #f0f0f0;
         .path-0,
         .path-2 {fill: $white;}
         .path-1 {fill: #0052b4;}
-        .path-3 {fill: #d80027;}
+        .path-3 {fill: $red;}
     }
 
     &--spain {
         .path-0,
-        .path-2 {fill: #ffda44;}
-        .path-1 {fill: #d80027;}
+        .path-2 {fill: $yellow;}
+        .path-1 {fill: $red;}
     }
 
     &--sweden {
         .path-0 {fill: #0052b4;}
-        .path-1 {fill: #ffda44;}
+        .path-1 {fill: $yellow;}
     }
 
     &--uk {
-        .path-0 {fill: #f0f0f0;}
-        .path-1 {fill: #d80027;}
-        .path-2 {fill: #0052b4;}
-        .path-3 {fill: #f0f0f0;}
-        .path-4 {fill: #d80027;}
-        .path-5 {fill: #0052b4;}
-        .path-6 {fill: #d80027;}
-        .path-7 {fill: #0052b4;}
-        .path-8 {fill: #f0f0f0;}
-        .path-9 {fill: #d80027;}
-        .path-10 {fill: #0052b4;}
-        .path-11 {fill: #d80027;}
+        .path-0,
+        .path-3,
+        .path-8 {fill: $white;}
+
+        .path-1,
+        .path-4,
+        .path-6,
+        .path-9,
+        .path-11 {fill: $red;}
+
+        .path-2,
+        .path-5,
+        .path-7,
+        .path-10,
         .path-12 {fill: #0052b4;}
     }
-
-
-
-
-
-
-
-
-
-
 
     &--usa {
         .path-0,
         .path-3 {fill: $white}
-        .path-1 {fill: #d80027}
+        .path-1 {fill: $red}
         .path-2 {fill: #2e52b2}
     }
 }
