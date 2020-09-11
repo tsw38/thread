@@ -1,1 +1,112 @@
-.Flag {}
+@import '../../../styles/globals';
+
+$white: #f0f0f0;
+
+.Flag {
+    width: 3rem;
+
+    &--china {
+        .path-0 { fill: #d80027;}
+        .path-1 { fill: #ffda44; }
+    }
+    &--france {
+        .path-0 {fill: $white;}
+        .path-1 {fill: #0052b4}
+        .path-2 {fill: #d80027}
+    }
+
+    &--greece {
+        .path-0 { fill: $white; }
+        .path-1,
+        .path-2 {fill: #338af3; }
+        .path-3,
+        .path-4 { fill: $white; }
+    }
+
+    &--germany {
+        .path-0 {fill: #d80027}
+        .path-2 {fill: #ffda44}
+    }
+
+    &--ireland {
+        .path-0 {fill: $white; }
+        .path-1 {fill: #6da544; }
+        .path-2 {fill: #ff9811; }
+    }
+
+    &--italy {
+        .path-0 {fill: #6da544;}
+        .path-1 {fill: $white;}
+        .path-2 {fill: #d80027;}
+    }
+
+    &--japan {
+        .path-0 {fill: $white;}
+        .path-1 {fill: #d80027;}
+    }
+
+    &--poland {
+        .path-0,
+        .path-1 {fill: $white;}
+        .path-2 {fill: #d80027;}
+    }
+
+    &--portugal {
+        .path-0,
+        .path-3 {fill: #d80027;}
+        .path-1 {fill: #6da544;}
+        .path-2 {fill: #ffda44;}
+        .path-4 {fill: $white;}
+    }
+
+    &--russia {
+        .path-0,
+        .path-2 {fill: $white;}
+        .path-1 {fill: #0052b4;}
+        .path-3 {fill: #d80027;}
+    }
+
+    &--spain {
+        .path-0,
+        .path-2 {fill: #ffda44;}
+        .path-1 {fill: #d80027;}
+    }
+
+    &--sweden {
+        .path-0 {fill: #0052b4;}
+        .path-1 {fill: #ffda44;}
+    }
+
+    &--uk {
+        .path-0 {fill: #f0f0f0;}
+        .path-1 {fill: #d80027;}
+        .path-2 {fill: #0052b4;}
+        .path-3 {fill: #f0f0f0;}
+        .path-4 {fill: #d80027;}
+        .path-5 {fill: #0052b4;}
+        .path-6 {fill: #d80027;}
+        .path-7 {fill: #0052b4;}
+        .path-8 {fill: #f0f0f0;}
+        .path-9 {fill: #d80027;}
+        .path-10 {fill: #0052b4;}
+        .path-11 {fill: #d80027;}
+        .path-12 {fill: #0052b4;}
+    }
+
+
+
+
+
+
+
+
+
+
+
+    &--usa {
+        .path-0,
+        .path-3 {fill: $white}
+        .path-1 {fill: #d80027}
+        .path-2 {fill: #2e52b2}
+    }
+}
