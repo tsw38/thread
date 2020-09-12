@@ -1,0 +1,24 @@
+@import '../../../styles/globals.scss';
+
+.LoadingPortal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba($color_bizarre, 0.75);
+    z-index: 99999;
+    user-select: none;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .Logo {
+        width: 40vh;
+    }
+
+    &--dark {
+        background-color: rgba($color_tuna, 0.75);
+    }
+}
