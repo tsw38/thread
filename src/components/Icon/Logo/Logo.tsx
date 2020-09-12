@@ -7,7 +7,8 @@ export interface LogoProps {
     /**
      * The color of the logo
      */
-    color?: 'main'
+    color?:
+        | 'main'
         | 'bianca'
         | 'bizarre'
         | 'manz'
@@ -16,17 +17,21 @@ export interface LogoProps {
         | 'tapestry'
         | 'flamingo'
         | 'maroon_flush'
-        | 'tuna';
+        | 'tuna'
+    /**
+     * Flag that toggles spinning
+     */
+    loading?: boolean
     /**
      * Changes the logo to be mono color or not
      */
-    mono?: boolean;
+    mono?: boolean
 }
 
-const Logo: React.FC<LogoProps> = ({color = 'main', mono = false}) => (
+const Logo: React.FC<LogoProps> = ({color = 'main', mono = false, loading = false}) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
-        className={classNames('Logo', `Logo--${color}${mono ? '-mono' : ''}`)}
+        className={classNames('Logo', `Logo--${color}${mono ? '-mono' : ''}`, loading && 'Logo--loading')}
         viewBox="0 0 184.25 184"
     >
         <path

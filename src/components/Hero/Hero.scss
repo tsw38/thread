@@ -1,1 +1,36 @@
-.Hero {}
+@import '../../styles/globals.scss';
+
+.Hero {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    h1 {
+        height: 100%;
+        display: flex;
+        max-height: 15rem;
+        color: var(--bianca);
+        flex-direction: column;
+        font-family: 'Overpass';
+        background-color: rgba($color_tuna, 0.65);
+        padding: 4rem 1rem;
+    }
+
+    .Title {
+        font-size: 4.5rem;
+
+        font-style: italic;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .Designer {
+        text-align: center;
+        padding-top: 1rem;
+        letter-spacing: 1px;
+
+        span {
+            display: block;
+        }
+    }
+}

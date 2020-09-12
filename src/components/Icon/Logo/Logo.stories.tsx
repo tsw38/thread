@@ -38,7 +38,13 @@ export default {
 } as Meta;
 
 export const Default = (args) => (
-  <div className="LogoWrapper">
-     <LogoComponent {...args} />
-  </div>
-);
+    <div className="LogoWrapper">
+        <LogoComponent {...args} />
+    </div>
+)
+
+export const Loading = (args) => (
+    <div className="LogoWrapper">
+        <LogoComponent {...args} loading />
+    </div>
+)

@@ -9,3 +9,11 @@ export default {
 } as Meta;
 
 export const Default = (args) => <HeroComponent {...args} />
+Default.args = {
+    title: 'Clapton',
+    author: 'Isabell Kraemer',
+    img: {
+        src: 'https://picsum.photos/400/500',
+        alt: '',
+    },
+}
