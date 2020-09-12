@@ -1,0 +1,73 @@
+@import '../../../../styles/globals.scss';
+
+@mixin theme($color: $color_tapestry){
+    background-color: $color;
+    border-bottom: 2px solid darken($color, 15%);
+    text-shadow: 0 1px 1px rgba($color_tuna, 0.25);
+    box-shadow: 0px 2px 4px rgba($color_tuna, 0.25);
+
+    &.Button--hover, &:hover{
+        background-color: lighten($color, 5%);
+        box-shadow: 0px 4px 8px rgba($color_tuna, 0.25);
+    }
+
+    &.Button--click, &:active {
+        background-color: darken($color, 5%);
+        box-shadow: 0px 0px 0px rgba($color_tuna, 0.4);
+        border-bottom: 2px solid transparent;
+        border: 2px solid darken($color, 15%);
+        color: darken($color_bianca, 2%);
+    }
+}
+
+.Button {
+    @include transition(background-color, box-shadow, border, color);
+    font-family: 'Overpass';
+    font-size: 1.125rem;
+    font-weight: 800;
+    color: var(--bianca);
+    padding: 0.5rem;
+    line-height: 1;
+    border: 2px solid transparent;
+    border-radius: 4px;
+
+
+    &:focus {
+        outline: none;
+    }
+
+    &:disabled {
+        background-color: lighten($color_tuna, 70%);
+        color: lighten($color_tuna, 55%);
+        border: 2px solid lighten($color_tuna, 55%);
+        pointer-events: none;
+        user-select: none;
+        text-shadow: none;
+        box-shadow: none;
+    }
+
+    &--atomic_tangerine { @include theme($color_atomic_tangerine);}
+    &--tickle_me_pink { @include theme($color_tickle_me_pink);}
+    &--corduroy { @include theme($color_corduroy);}
+    &--tapestry { @include theme($color_tapestry);}
+    &--flamingo { @include theme($color_flamingo);}
+    &--maroon_flush { @include theme($color_maroon_flush);}
+    &--tuna { @include theme($color_tuna);}
+
+    &--bizarre {
+        @include theme($color_bizarre);
+        color: var(--bianca);
+    }
+}
+
+.ButtonGroup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 0.5rem;
+
+    &--stacked {
+        display: grid;
+        grid-template-columns: none;
+        grid-row-gap: 0.5rem;
+    }
+}

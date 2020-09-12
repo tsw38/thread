@@ -30,6 +30,7 @@ const createTestFile = ({path, component}) => {
 const createComponentFile = ({path, component}) => {
     const componentTemplate = `
 import React from 'react';
+import classNames from 'classnames';
 
 import './${component}.scss';
 

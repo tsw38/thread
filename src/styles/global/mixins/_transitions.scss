@@ -1,3 +1,9 @@
-@mixin transition($x){
-    transition: $x 250ms ease;
+@mixin transition($transitions...){
+    $transition: null;
+
+    @each $property in $transitions {
+        $transition: $transition, $property 250ms ease;
+    }
+
+    transition: $transition;
 }
