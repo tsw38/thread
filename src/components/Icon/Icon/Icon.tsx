@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import './Icon.scss';
+import styles from './Icon.module.scss';
 import icons from './icons';
 
 export interface IconProps {

@@ -1,35 +1,26 @@
-$color_bianca: #fcf7f3;
-$color_bizarre: #e9d8ce;
-$color_manz: #f0e067;
-$color_atomic_tangerine: #ffac68;
-$color_tickle_me_pink: #fc7a96;
-$color_corduroy: #687772;
-$color_tapestry: #b56588;
-$color_nugget: #c6931d;
-$color_flamingo: #ea5d2f;
-$color_maroon_flush: #c62456;
-$color_tuna: #2e2e36;
-
-$logo_cupid: #F9BDD0;
-$logo_mulberry: #cc4c80;
-
-$theme_primary: $color_tapestry;
+@mixin createVariables($name, $hue, $saturation, $lightness) {
+    --#{$name}-h: #{$hue};
+    --#{$name}-s: #{$saturation};
+    --#{$name}-l: #{$lightness};
+    --#{$name}: hsl(#{$hue}, #{$saturation}, #{$lightness});
+}
 
 :root {
-    --bianca: #{$color_bianca};
-    --bizarre: #{$color_bizarre};
-    --manz: #{$color_manz};
-    --atomic_tangerine: #{$color_atomic_tangerine};
-    --tickle_me_pink: #{$color_tickle_me_pink};
-    --corduroy: #{$color_corduroy};
-    --tapestry: #{$color_tapestry};
-    --nugget: #{$color_nugget};
-    --flamingo: #{$color_flamingo};
-    --maroon_flush: #{$color_maroon_flush};
-    --tuna: #{$color_tuna};
+    @include createVariables(bianca, 27, 60%, 97%);            // hsl(27, 60%, 97%)
+    @include createVariables(cupid, 341, 83%, 86%);            // hsl(341, 83%, 86%))
 
-    --cupid: #{$logo_cupid};
-    --mulberry: #{$logo_mulberry};
+    @include createVariables(bizarre, 22, 38%, 73%);           // hsl(22, 38%, 73%))
+    @include createVariables(manz, 53, 82%, 73%);              // hsl(53, 82%, 73%))
+    @include createVariables(atomic_tangerine, 27, 100%, 73%); // hsl(27, 100%, 73%))
+    @include createVariables(tickle_me_pink, 347, 96%, 73%);   // hsl(347, 96%, 73%))
 
-    --theme-primary: #{$color_tapestry};
+    @include createVariables(corduroy, 160, 7%, 46%);          // hsl(160, 7%, 44%))
+    @include createVariables(nugget, 42, 74%, 46%);            // hsl(42, 74%, 44%))
+    @include createVariables(maroon_flush, 341, 69%, 46%);     // hsl(341, 69%, 44%))
+
+    @include createVariables(tapestry, 334, 35%, 55%);         // hsl(334, 35%, 55%))
+    @include createVariables(flamingo, 15, 82%, 55%);          // hsl(15, 82%, 55%))
+    @include createVariables(mulberry, 336, 56%, 55%);         // hsl(336, 56%, 55%))
+
+    @include createVariables(tuna, 240, 8%, 20%);              // hsl(240, 8%, 20%))
 }

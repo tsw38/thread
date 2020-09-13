@@ -1,27 +1,19 @@
 import React from 'react'
 import classNames from 'classnames'
 
-import './Button.scss'
+import styles from './Button.module.scss'
+import ColorType from '../../../../types/color';
 
 export interface ButtonProps {
-    color?:
-        | 'bianca'
-        | 'bizarre'
-        | 'atomic_tangerine'
-        | 'tickle_me_pink'
-        | 'tapestry'
-        | 'flush'
-        | 'flamingo'
-        | 'corduroy'
-        | 'tuna'
     disabled?: boolean
     className?: string
     onClick?: MouseEvent
+    color?: ColorType['color'],
     children: React.ReactNode | string
 }
 
 const unimplementedClick = () => {
-    console.warn('No On Click Event')
+    throw new Error('No onClick event is attached to this button')
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -34,12 +26,10 @@ const Button: React.FC<ButtonProps> = ({
     <button
         disabled={disabled}
         onClick={typeof onClick === 'function' ? onClick : unimplementedClick}
-        className={classNames({
-            Button: true,
-            [`Button--${color}`]: true,
-            'Button--hover': className === 'hover',
-            'Button--click': className === 'click',
-            'Button--disabled': disabled,
+        className={classNames(styles.Button, styles[`Button--${color}`], {
+            [styles['Button--hover']]: className === 'hover',
+            [styles['Button--click']]: className === 'click',
+            [styles['Button--disabled']]: disabled,
         })}
     >
         {children}

@@ -1,9 +1,9 @@
-@import '../../styles/globals';
+@import '../../styles/global/mixins';
 
 .ImageCard {
     display: block;
 
-    figure {
+    .Figure {
         width: 16rem;
         position:relative;
         overflow: hidden;
@@ -16,14 +16,14 @@
             opacity: 1;
         }
 
-        img {
+        .Image {
             width: 100%;
             z-index: 0;
             opacity: 0;
             pointer-events: none;
         }
 
-        figcaption {
+        .Figcaption {
             @include transition(opacity);
 
             display: flex;
@@ -33,13 +33,12 @@
             right: 0;
             bottom: 0;
             z-index: 10;
-            height: 100%;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-color: rgba($color_bizarre, 0.8);
+            background-color: var(--bizarre);
             padding: 1rem;
-            border: 0.5rem solid var(--theme-primary);
+            border: 0.5rem solid var(--tapestry);
             opacity: 0;
             user-select: none;
 
@@ -70,7 +69,7 @@
         text-align: center;
         line-height: 1.25;
 
-        span {
+        .Name {
             display: block;
         }
     }

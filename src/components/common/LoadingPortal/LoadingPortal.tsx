@@ -2,7 +2,7 @@
 import React, {useEffect} from 'react';
 import {createPortal} from 'react-dom';
 
-import './LoadingPortal.scss';
+import styles from './LoadingPortal.module.scss';
 import {Logo} from '../../Icon';
 
 export interface ModalProps {
@@ -18,7 +18,7 @@ const Portal: React.FC<ModalProps> = ({children, dark}) => {
     const mount = document.body;
     const el = document.createElement('div')
 
-    el.classList.add(...['LoadingPortal', dark && 'LoadingPortal--dark'].filter(Boolean));
+    el.classList.add(...[styles.LoadingPortal, dark && styles['LoadingPortal--dark']].filter(Boolean));
 
     useEffect(() => {
         mount.appendChild(el)
@@ -31,7 +31,7 @@ const Portal: React.FC<ModalProps> = ({children, dark}) => {
 const LoadingPortal: React.FC<LoadingPortalProps> = ({dark}) => {
     return (
         <Portal dark={dark}>
-            <Logo loading mono color={dark ? 'bizarre' : 'tickle_me_pink'} />
+            <Logo loading mono color={dark ? 'bizarre' : 'tickle_me_pink'} className={styles.Logo} />
         </Portal>
     )
 }

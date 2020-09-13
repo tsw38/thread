@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-import './Hero.scss';
+import styles from './Hero.module.scss';
 
 export interface HeroProps {
     /**
@@ -22,10 +22,10 @@ export interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({img, title, author}) => (
-    <div className="Hero" style={{backgroundImage: `url(${img.src})`}}>
-        <h1>
-            <span className="Title">{title}</span>
-            <span className="Designer">{author}</span>
+    <div className={styles.Hero} style={{backgroundImage: `url(${img.src})`}}>
+        <h1 className={styles.TextWrapper}>
+            <span className={styles.Title}>{title}</span>
+            <span className={styles.Designer}>{author}</span>
         </h1>
     </div>
 )

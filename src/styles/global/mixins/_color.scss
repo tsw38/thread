@@ -1,0 +1,11 @@
+@function darken($name, $amount: 0%) {
+    @return hsl(var(#{$name}-h), var(#{$name}-s), calc(var(#{$name}-l) - #{$amount}));
+}
+
+@function lighten($name, $amount: 0%) {
+    @return hsl(var(#{$name}-h), var(#{$name}-s), calc(var(#{$name}-l) + #{$amount}));
+}
+
+@function transparentize($name, $amount: 0%) {
+    @return hsl(var(#{$name}-h), var(#{$name}-s), var(#{$name}-l), #{$amount});
+}

@@ -1,0 +1,55 @@
+@import '../../../../styles/global/mixins';
+$colors: bianca, bizarre, manz, atomic_tangerine, tickle_me_pink, corduroy, tapestry, flamingo, tuna, cupid, maroon_flush, mulberry;
+
+.Button {
+    @include transition(background-color, box-shadow, border, color);
+    font-family: 'Overpass';
+    font-size: 1.125rem;
+    font-weight: 800;
+    color: var(--bianca);
+    padding: 0.5rem;
+    line-height: 1;
+    border: 2px solid transparent;
+    border-radius: 4px;
+
+
+    &:focus {
+        outline: none;
+    }
+
+    &:disabled {
+        background-color: lighten(--tuna, 70%);
+        color: lighten(--tuna, 55%);
+        border: 2px solid lighten(--tuna, 55%);
+        pointer-events: none;
+        user-select: none;
+        text-shadow: none;
+        box-shadow: none;
+    }
+
+    @each $color in $colors {
+        &--#{$color} {
+            background-color: var(--#{$color});
+            border-bottom: 2px solid darken(--#{$color}, 15%);
+            text-shadow: 0 1px 1px transparentize(--tuna, 0.25);
+            box-shadow: 0px 2px 4px transparentize(--tuna, 0.25);
+
+            &.Button--hover, &:hover{
+                background-color: lighten(--#{$color}, 5%);
+                box-shadow: 0px 4px 8px transparentize(--tuna, 0.25);
+            }
+
+            &.Button--click, &:active {
+                background-color: darken(--#{$color}, 5%);
+                box-shadow: 0px 0px 0px transparentize(--tuna, 0.4);
+                border-bottom: 2px solid transparent;
+                border: 2px solid darken(--#{$color}, 15%);
+                color: darken(--bianca, 2%);
+            }
+        }
+    }
+
+    &--bizarre {
+        color: var(--bianca);
+    }
+}

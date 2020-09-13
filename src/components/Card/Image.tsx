@@ -2,7 +2,7 @@ import React from 'react';
 import Link from '../common/Link';
 import classNames from 'classnames';
 
-import './Image.scss';
+import styles from './Image.module.scss';
 
 import {Logo} from '../Icon'
 
@@ -41,15 +41,15 @@ const ImageCard: React.FC<ImageCardProps> = ({
 }) => {
     return (
         <Link href={url}>
-            <a className={classNames('ImageCard', className)}>
-                <figure style={{backgroundImage: `url(${img.src})`}}>
-                    <img {...img} />
-                    <figcaption>
-                        <Logo mono color="tapestry" />
-                        <h2 className="Title">{title}</h2>
-                        <p className="Designer">
+            <a className={classNames(styles.ImageCard, className)}>
+                <figure style={{backgroundImage: `url(${img.src})`}} className={styles.Figure}>
+                    <img {...img} className={styles.Image} />
+                    <figcaption className={styles.Figcaption}>
+                        <Logo mono color="tapestry" className={styles.Logo} />
+                        <h2 className={styles.Title}>{title}</h2>
+                        <p className={styles.Designer}>
                             Designed by
-                            <span>{author}</span>
+                            <span className={styles.Name}>{author}</span>
                         </p>
                     </figcaption>
                 </figure>

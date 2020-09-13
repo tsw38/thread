@@ -4,7 +4,8 @@ import { Meta } from '@storybook/react/types-6-0';
 import Icon from './Icon';
 
 import icons from './icons';
-import './Icon.stories.scss';
+import styles from './Icon.stories.module.scss';
+import iconStyle from './Icon.module.scss';
 
 export default {
   title: 'Icons/Default',
@@ -13,11 +14,11 @@ export default {
 
 export const Default = () => {
     return (
-      <div className="IconsWrapper">
+      <div className={styles.IconsWrapper}>
         {Object.keys(icons).map(icon => {
           return (
-            <div className="IconWrapper" key={`Icon-${icon}`}>
-              <Icon name={icon} />
+            <div className={styles.IconWrapper} key={`Icon-${icon}`}>
+              <Icon name={icon} className={iconStyle.Icon}/>
               <code>{icon}</code>
             </div>
           )

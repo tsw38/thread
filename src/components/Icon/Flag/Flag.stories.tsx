@@ -4,7 +4,8 @@ import {Meta} from '@storybook/react/types-6-0'
 import FlagComponent from './Flag'
 
 import flags from './flags'
-import './Flag.stories.scss'
+import storyStyles from './Flag.stories.module.scss';
+// import styles from './Flag.stories.module.scss';
 
 export default {
     title: 'Icons/Flags',
@@ -12,10 +13,10 @@ export default {
 } as Meta
 
 export const Default = () => (
-    <div className="FlagsWrapper">
+    <div className={storyStyles.FlagsWrapper}>
         {Object.keys(flags).map((flag) => {
             return (
-                <div className="FlagWrapper" key={`Flag-${flag}`}>
+                <div className={storyStyles.FlagWrapper} key={`Flag-${flag}`}>
                     <FlagComponent name={flag} />
                     <code>{flag}</code>
                 </div>
@@ -25,10 +26,11 @@ export const Default = () => (
 )
 
 export const Flag = (args) => (
-    <div className="FullPage">
-        <FlagComponent {...args} name={args.name || 'greece'} />
+    <div className={storyStyles.FullPage}>
+        <FlagComponent {...args} name={args.name} className={storyStyles.Flag} />
     </div>
 )
+
 Flag.argTypes = {
     name: {
         control: {
@@ -36,4 +38,8 @@ Flag.argTypes = {
             options: Object.keys(flags),
         },
     },
+}
+
+Flag.args = {
+    name: 'greece'
 }

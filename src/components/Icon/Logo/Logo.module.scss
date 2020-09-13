@@ -1,0 +1,156 @@
+@import '../../../styles/global/mixins';
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+.Logo {
+    width: 2rem;
+
+    &--loading {
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-name: spin;
+        animation-timing-function: ease-in-out;
+    }
+
+    &--main {
+        .color-1 {fill: var(--tickle_me_pink);}
+        .color-2 {fill: var(--cupid);}
+        .color-3 {fill: var(--maroon_flush);}
+        .color-4 {fill: var(--mulberry);}
+    }
+
+    &--bianca {
+        .color-1 { fill: darken(--bianca, 05%); }
+        .color-2 { fill: darken(--bianca, 10%); }
+        .color-3 { fill: darken(--bianca, 25%); }
+        .color-4 { fill: darken(--bianca, 35%); }
+    }
+
+    &--bianca-mono {
+        .color-1, .color-2,
+        .color-3, .color-4{fill: var(--bianca)}
+    }
+
+    &--cupid {
+        .color-1 { fill: darken(--cupid, 05%); }
+        .color-2 { fill: darken(--cupid, 10%); }
+        .color-3 { fill: darken(--cupid, 25%); }
+        .color-4 { fill: darken(--cupid, 35%); }
+    }
+
+    &--cupid-mono {
+        .color-1, .color-2,
+        .color-3, .color-4{fill:var(--cupid)}
+    }
+
+    &--bizarre {
+        .color-1 {fill: darken(--bizarre, 5%)}
+        .color-2 {fill: darken(--bizarre, 10%)}
+        .color-3 {fill: darken(--bizarre, 25%)}
+        .color-4 {fill: darken(--bizarre, 40%)}
+    }
+
+    &--bizarre-mono {
+        .color-1, .color-2,
+        .color-3, .color-4{fill:var(--bizarre)}
+    }
+
+    &--manz {
+        .color-1 {fill: var(--manz);}
+        .color-2 {fill:darken(--manz, 10%)}
+        .color-3 {fill:darken(--manz, 20%)}
+        .color-4 {fill:darken(--manz, 30%)}
+    }
+
+    &--manz-mono {
+        .color-1, .color-2,
+        .color-3, .color-4{fill:var(--manz)}
+    }
+
+    &--atomic_tangerine {
+        .color-1 {fill: var(--atomic_tangerine);}
+        .color-2 {fill:darken(--atomic_tangerine, 5%)}
+        .color-3 {fill:darken(--atomic_tangerine, 20%)}
+        .color-4 {fill:darken(--atomic_tangerine, 25%)}
+    }
+
+    &--atomic_tangerine-mono {
+        .color-1, .color-2,
+        .color-3, .color-4{fill:var(--atomic_tangerine)}
+    }
+
+    &--tickle_me_pink {
+        .color-1 {fill:lighten(--tickle_me_pink, 10%);}
+        .color-2 {fill: var(--tickle_me_pink) ;}
+        .color-3 {fill:darken(--tickle_me_pink, 10%)}
+        .color-4 {fill:darken(--tickle_me_pink, 25%)}
+    }
+
+    &--tickle_me_pink-mono {
+        .color-1, .color-2,
+        .color-3, .color-4{fill:var(--tickle_me_pink)}
+    }
+
+    &--tapestry {
+        .color-1 {fill:lighten(--tapestry, 20%)}
+        .color-2 {fill:lighten(--tapestry, 10%)}
+        .color-3 {fill:var(--tapestry);}
+        .color-4 {fill:darken(--tapestry, 20%)}
+    }
+
+    &--tapestry-mono {
+        .color-1, .color-2,
+        .color-3, .color-4{fill:var(--tapestry)}
+    }
+
+    &--flamingo {
+        .color-1 { fill: lighten(--flamingo, 20%); }
+        .color-2 { fill: lighten(--flamingo, 10%); }
+        .color-3 { fill: var(--flamingo); }
+        .color-4 { fill: darken(--flamingo, 15%); }
+    }
+
+    &--flamingo-mono {
+        .color-1, .color-2,
+        .color-3, .color-4{fill:var(--flamingo)}
+    }
+
+    &--maroon_flush {
+        .color-1 {fill:lighten(--maroon_flush, 30%)}
+        .color-2 {fill:lighten(--maroon_flush, 15%)}
+        .color-3 {fill:var(--maroon_flush)}
+        .color-4 {fill:darken(--maroon_flush, 15%)}
+    }
+
+    &--maroon_flush-mono {
+        .color-1, .color-2,
+        .color-3, .color-4{fill:var(--maroon_flush)}
+    }
+
+    &--tuna {
+        .color-1 {fill:lighten(--tuna, 60%)}
+        .color-2 {fill:lighten(--tuna, 40%)}
+        .color-3 {fill:darken(--tuna, 20%)}
+        .color-4 {fill:var(--tuna);}
+    }
+
+    &--tuna-mono {
+        .color-1, .color-2,
+        .color-3, .color-4{fill:var(--tuna)}
+    }
+
+    &--corduroy {
+        .color-1 {fill:lighten(--corduroy, 60%)}
+        .color-2 {fill:lighten(--corduroy, 40%)}
+        .color-3 {fill:darken(--corduroy, 20%)}
+        .color-4 {fill:var(--corduroy);}
+    }
+
+    &--corduroy-mono {
+        .color-1, .color-2,
+        .color-3, .color-4{fill:var(--corduroy)}
+    }
+}

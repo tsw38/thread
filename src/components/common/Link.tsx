@@ -1,14 +1,16 @@
 import React from 'react';
-import Link from 'next/link';
-import Router from 'next/router';
+import NextLink from 'next/link';
 
-const CustomLink = ({children, href, ...otherProps}) => {
-    const isPage = () => {
-        // if we're in a next.js route, then Router.router will be set
-        return Boolean(Router.route || Router.pathname || Router.basePath)
-    }
-
-    return isPage() ? <Link href={href} {...otherProps}>{children}</Link> : children
+export interface LinkProps {
+    href: string
+    children?: React.ReactNode | string
+}
+const Link: React.FC<LinkProps> = ({children, href}) => {
+    return (
+        <NextLink href={href}>
+            {children}
+        </NextLink>
+    )
 }
 
-export default CustomLink;
+export default Link;

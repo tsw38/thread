@@ -47,3 +47,13 @@ table {
 	-webkit-font-smoothing: antialiased;
   	-moz-osx-font-smoothing: grayscale;
 }
+
+code {
+	padding: 4px !important;
+	color: var(--tuna);
+	background-color: var(--bizarre);
+	border: 1px solid var(--tapestry);
+	border-radius: 3px;
+	font-family: monospace !important;
+	font-size: 12px !important;
+}

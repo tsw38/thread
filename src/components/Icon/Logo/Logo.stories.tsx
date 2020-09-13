@@ -4,7 +4,8 @@ import { Meta } from '@storybook/react/types-6-0';
 
 import LogoComponent from './Logo';
 
-import './Logo.stories.scss';
+import storyStyles from './Logo.stories.module.scss';
+import {colors} from '../../../types/color';
 
 export default {
     title: 'Icons/Logo',
@@ -14,37 +15,26 @@ export default {
             control: {
                 type: 'inline-radio',
                 defaultValue: 'main',
-                options: [
-                    'main',
-                    'bianca',
-                    'bizarre',
-                    'manz',
-                    'atomic_tangerine',
-                    'tickle_me_pink',
-                    'tapestry',
-                    'flamingo',
-                    'maroon_flush',
-                    'tuna',
-                ],
+                options: colors.concat('main'),
             },
         },
         mono: {
             control: {
                 type: 'boolean',
-                defaultValue: false
+                defaultValue: false,
             },
         },
     },
-} as Meta;
+} as Meta
 
 export const Default = (args) => (
-    <div className="LogoWrapper">
-        <LogoComponent {...args} />
+    <div className={storyStyles.LogoWrapper}>
+        <LogoComponent {...args} className={storyStyles.Logo} />
     </div>
 )
 
 export const Loading = (args) => (
-    <div className="LogoWrapper">
-        <LogoComponent {...args} loading />
+    <div className={storyStyles.LogoWrapper}>
+        <LogoComponent {...args} loading className={storyStyles.Logo} />
     </div>
 )

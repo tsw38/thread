@@ -1,38 +1,55 @@
-const path = require('path');
+const path = require('path')
+// const nextConfig = require('../next.config')
 
+//TODO: import next config, and only pass that instead of custom webpack
 module.exports = {
-  "stories": [
-    path.resolve(__dirname, '../src/**/*.stories.mdx'),
-    path.resolve(__dirname, '../src/**/*.stories.{js,jsx,ts,tsx}'),
-  ],
-  "addons": [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    '@storybook/addon-controls',
-  ],
-  webpackFinal: async (config, { configType }) => {
-    //   console.warn({modules: config.resolve.modules})
-    config.resolve.modules.push(
-        path.resolve(__dirname, '../src')
-    );
-
-    config.resolve.alias.styles = path.resolve(__dirname, '../src/styles');
-    config.resolve.alias.fonts = path.resolve(__dirname, '../public/fonts');
-
-    // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
-    // You can change the configuration based on that.
-    // 'PRODUCTION' is used when building the static version of storybook.
-
-    // Make whatever fine-grained changes you need
-    config.module.rules.push({
-      test: /\.scss$/,
-      use: ['style-loader', 'css-loader', 'sass-loader'],
-      include: path.resolve(__dirname, '../'),
-    });
-
-    config.module.rules.push();
-
-    // Return the altered config
-    return config;
-  },
+    stories: [
+        '../src/**/*.stories.mdx',
+        '../src/**/*.stories.@(js|jsx|ts|tsx)',
+    ],
+    addons: [
+        '@storybook/addon-links',
+        '@storybook/addon-essentials',
+        '@storybook/addon-controls',
+    ],
+    webpackFinal: async (config, arg2) => {
+        config.module.rules.push({
+            test: /\.scss$/i,
+            use: [
+                // Creates `style` nodes from JS strings
+                'style-loader',
+                // Translates CSS into CommonJS
+                {
+                    loader: 'css-loader',
+                    options: {
+                        importLoaders: 2,
+                        sourceMap: true,
+                        onlyLocals: false,
+                        modules: {
+                            localIdentName: '[local]-[emoji]',
+                        },
+                    },
+                },
+                {
+                    loader: 'postcss-loader',
+                    options: {
+                        sourceMap: true,
+                        plugins: [require('autoprefixer')],
+                        options: {
+                            plugins: [['autoprefixer']],
+                        },
+                    },
+                },
+                // Compiles Sass to CSS
+                {
+                    loader: 'sass-loader',
+                    options: {
+                        sourceMap: true,
+                    },
+                },
+            ],
+        })
+        return config
+        // return nextConfig.webpack(config, {})
+    },
 }

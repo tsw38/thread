@@ -1,0 +1,11 @@
+$colors: bianca, bizarre, manz, atomic_tangerine, tickle_me_pink, corduroy, tapestry, flamingo, tuna, cupid, maroon_flush, mulberry;
+
+.Ribbon {
+    min-height: 1rem;
+    padding: 0.25rem 0;
+    width: 100%;
+
+    @each $color in $colors {
+        &--#{$color} { background-color: var(--#{$color})};
+    }
+}

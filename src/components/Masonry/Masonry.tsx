@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import Gallery from 'react-masonry-component';
 import ImageCard, {ImageCardProps} from '../Card/Image';
 
-import './Masonry.scss';
+import styles from './Masonry.module.scss';
 
 export interface MasonryProps {
     elements?: ImageCardProps[]
@@ -20,7 +20,7 @@ const Masonry: React.FC<MasonryProps> = ({
 
     const childElements = elements.map((element, index) => {
         return (
-            <ImageCard className="MasonryItem" key={`masonry-item-${index}`} {...element} />
+            <ImageCard className={styles.MasonryItem} key={`masonry-item-${index}`} {...element} />
         )
     })
 
@@ -30,7 +30,9 @@ const Masonry: React.FC<MasonryProps> = ({
 
     return (
         <Gallery
-            className={classNames('Masonry', {'Masonry-hidden': !layoutComplete})}
+            className={classNames(styles.Masonry, {
+                [styles['Masonry-hidden']]: !layoutComplete
+            })}
             elementType="div"
             options={masonryOptions}
             updateOnEachImageLoad={true}

@@ -1,0 +1,30 @@
+$colors: bianca, bizarre, manz, atomic_tangerine, tickle_me_pink, corduroy, tapestry, flamingo, tuna, cupid, maroon_flush, mulberry;
+
+.ColorWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+    max-width: 768px;
+    margin: 0 auto;
+}
+
+.Color {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .Background {
+        height: 20px;
+        width: 75%;
+        border: 1px solid var(--tuna);
+        border-radius: 10px;
+        background-color: var(--tuna);
+        margin-bottom: 10px;
+    }
+
+    @each $color in $colors {
+        &-#{$color} .Background {
+            background-color: var(--#{$color})
+        };
+    }
+}

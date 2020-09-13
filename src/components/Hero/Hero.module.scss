@@ -1,18 +1,18 @@
-@import '../../styles/globals.scss';
+@import '../../styles/global/mixins';
 
 .Hero {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
-    h1 {
+    .TextWrapper {
         height: 100%;
         display: flex;
         max-height: 15rem;
         color: var(--bianca);
         flex-direction: column;
         font-family: 'Overpass';
-        background-color: rgba($color_tuna, 0.65);
+        background-color: transparentize(--tuna, 0.65);
         padding: 4rem 1rem;
     }
 

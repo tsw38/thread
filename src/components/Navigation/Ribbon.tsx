@@ -1,30 +1,31 @@
-import React from 'react';
-import classNames from 'classnames';
+import React from 'react'
+import classNames from 'classnames'
 
-import './Ribbon.scss';
+import ColorType from '../../types/color'
+
+import styles from './Ribbon.module.scss'
 
 export interface RibbonProps {
-    children?: React.ReactNode,
-  /**
-   * Ribbon color
-   */
-    color?: 'bizarre' | 'manz' | 'atomic_tangerine' | 'tickle_me_pink' | 'tapestry' | 'flush' | 'flamingo' | 'corduroy' | 'tuna'
+    children?: React.ReactNode
+    /**
+     * Ribbon color
+     */
+    color?: ColorType['color']
 }
 
 /**
  * Primary UI component for user interaction
  */
 const Ribbon: React.FC<RibbonProps> = ({
-  color = 'tapestry',
-  children,
-  ...props
+    color = 'tapestry',
+    children,
+    ...props
 }) => {
-  return (
-    <div className={classNames(
-        'Ribbon',
-        `Ribbon--${color}`
-    )}>{children}</div>
-  );
-};
+    return (
+        <div className={classNames(styles.Ribbon, styles[`Ribbon--${color}`])}>
+            {children}
+        </div>
+    )
+}
 
-export default Ribbon;
+export default Ribbon

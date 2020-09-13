@@ -8,13 +8,18 @@
         .LogoAnchor {
             display: flex;
             align-items: center;
-            padding: 0.125rem;
-            font-size: 1.5rem;
-            font-family: 'Neue Kabel';
+            padding: 0.25rem 0.5rem;
         }
 
         .Logo {
             margin-right: 0.5rem;
+            width: 2.5rem;
+        }
+
+        .Text {
+            font-size: 1.5rem;
+            font-family: 'Neue Kabel';
+            font-weight: 800;
         }
     }
 }
