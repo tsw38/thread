@@ -12,7 +12,7 @@ export const getStaticProps = async (appContext) => {
   return {
     props: {
       navigation: {
-        color: 'maroon_flush'
+        color: 'tapestry'
       }
     }
   }

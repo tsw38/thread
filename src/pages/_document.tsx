@@ -16,6 +16,7 @@ class MyDocument extends Document {
         return (
             <Html>
                 <Head>
+                    <link rel="icon" href="/favicon.svg" />
                     <script
                         async
                         src="https://www.googletagmanager.com/gtag/js?id=G-W7FRMBJZCQ"
