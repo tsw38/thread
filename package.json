@@ -1,67 +1,68 @@
 {
-  "name": "thread",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "cypress:open": "cypress open",
-    "create-component": "ENV=dev node ./config/create-component"
-  },
-  "dependencies": {
-    "classnames": "^2.2.6",
-    "next": "9.5.3",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "react-masonry-component": "^6.2.1"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.11.6",
-    "@storybook/addon-actions": "^6.0.21",
-    "@storybook/addon-controls": "^6.0.21",
-    "@storybook/addon-essentials": "^6.0.21",
-    "@storybook/addon-links": "^6.0.21",
-    "@storybook/react": "^6.0.21",
-    "@types/node": "^14.6.4",
-    "@types/react": "^16.9.49",
-    "@zeit/next-sass": "^1.0.1",
-    "babel-loader": "^8.1.0",
-    "colors": "^1.4.0",
-    "command-line-args": "^5.1.1",
-    "cypress": "^5.1.0",
-    "file-loader": "^6.1.0",
-    "mini-css-extract-plugin": "^0.11.2",
-    "mkdirp": "^1.0.4",
-    "prettier": "^2.1.1",
-    "react-is": "^16.13.1",
-    "sass": "^1.26.10",
-    "sass-loader": "^10.0.2",
-    "svg-path-parse": "^1.1.3",
-    "typescript": "^4.0.2"
-  },
-  "prettier": {
-    "semi": false,
-    "bracketSpacing": false,
-    "endOfLine": "lf",
-    "singleQuote": true,
-    "tabWidth": 4,
-    "trailingComma": "es5",
-    "overrides": [
-      {
-        "files": "*.json",
-        "options": {
-          "tabWidth": 2
-        }
-      },
-      {
-        "files": "*.scss",
-        "options": {
-          "singleQuote": false
-        }
-      }
-    ]
-  }
+    "name": "thread",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "storybook": "start-storybook -p 6006",
+        "build-storybook": "build-storybook",
+        "cypress:open": "cypress open",
+        "create-component": "ENV=dev node ./config/create-component",
+        "bump-version": "node ./config/version-bump"
+    },
+    "dependencies": {
+        "classnames": "^2.2.6",
+        "next": "9.5.3",
+        "react": "16.13.1",
+        "react-dom": "16.13.1",
+        "react-masonry-component": "^6.2.1"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.11.6",
+        "@storybook/addon-actions": "^6.0.21",
+        "@storybook/addon-controls": "^6.0.21",
+        "@storybook/addon-essentials": "^6.0.21",
+        "@storybook/addon-links": "^6.0.21",
+        "@storybook/react": "^6.0.21",
+        "@types/node": "^14.6.4",
+        "@types/react": "^16.9.49",
+        "@zeit/next-sass": "^1.0.1",
+        "babel-loader": "^8.1.0",
+        "colors": "^1.4.0",
+        "command-line-args": "^5.1.1",
+        "cypress": "^5.1.0",
+        "file-loader": "^6.1.0",
+        "mini-css-extract-plugin": "^0.11.2",
+        "mkdirp": "^1.0.4",
+        "prettier": "^2.1.1",
+        "react-is": "^16.13.1",
+        "sass": "^1.26.10",
+        "sass-loader": "^10.0.2",
+        "svg-path-parse": "^1.1.3",
+        "typescript": "^4.0.2"
+    },
+    "prettier": {
+        "semi": false,
+        "bracketSpacing": false,
+        "endOfLine": "lf",
+        "singleQuote": true,
+        "tabWidth": 4,
+        "trailingComma": "es5",
+        "overrides": [
+            {
+                "files": "*.json",
+                "options": {
+                    "tabWidth": 2
+                }
+            },
+            {
+                "files": "*.scss",
+                "options": {
+                    "singleQuote": false
+                }
+            }
+        ]
+    }
 }
