@@ -5,7 +5,7 @@ import 'styles/globals.scss'
 function MyApp({Component, pageProps}) {
     return (
         <>
-            <Navigation {...pageProps?.navigation} />
+            {/* <Navigation {...pageProps?.navigation} /> */}
             <Component {...(pageProps?.component || pageProps)} />
         </>
     )
