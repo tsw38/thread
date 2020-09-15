@@ -15,6 +15,10 @@ export interface LoadingPortalProps {
 }
 
 const Portal: React.FC<ModalProps> = ({children, dark}) => {
+    if(!global.document) {
+        return null;
+    }
+
     const mount = document.body;
     const el = document.createElement('div')
 
