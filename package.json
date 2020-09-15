@@ -3,10 +3,10 @@
     "version": "0.0.1",
     "private": true,
     "scripts": {
-        "dev": "next dev -p 6060",
+        "dev": "next dev -p 4450",
         "build": "next build",
-        "start": "next start -p 6060",
-        "storybook": "start-storybook -p 6006",
+        "start": "next start -p 4450",
+        "storybook": "start-storybook -p 4460",
         "build-storybook": "build-storybook",
         "cypress:open": "cypress open",
         "create-component": "ENV=dev node ./config/create-component",
