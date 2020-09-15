@@ -1,0 +1,12 @@
+version: 2.1
+orbs:
+  node: circleci/node@3.0.0
+workflows:
+  node-tests:
+    jobs:
+      - node/test:
+          version: 12.13.0
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
