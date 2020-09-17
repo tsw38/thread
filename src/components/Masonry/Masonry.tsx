@@ -7,14 +7,12 @@ import styles from './Masonry.module.scss';
 
 export interface MasonryProps {
     elements?: ImageCardProps[]
-}
-
-const masonryOptions = {
-    transitionDuration: 250,
+    columnWidth?: number
 }
 
 const Masonry: React.FC<MasonryProps> = ({
-    elements
+    elements,
+    ...masonryOptions
 }) => {
     const [layoutComplete, setLayoutComplete] = useState(false);
 
@@ -34,7 +32,10 @@ const Masonry: React.FC<MasonryProps> = ({
                 [styles['Masonry-hidden']]: !layoutComplete
             })}
             elementType="div"
-            options={masonryOptions}
+            options={{
+                transitionDuration: 250,
+                ...masonryOptions
+            }}
             updateOnEachImageLoad={true}
             onLayoutComplete={handleLayoutComplete}
         >

@@ -1,36 +1,23 @@
 @import '../global/mixins';
+@import '../global/breakpoints';
 
 .container {
+    margin: 0 auto;
+    padding: 1rem;
+    max-width: var(--breakpoint-desktop);
+
+    @include media(">=tablet", "<=desktop") {
+        max-width: var(--breakpoint-tablet);
+    }
+}
+
+.loading {
     display: flex;
     justify-content: center;
     align-items: center;
-    height:100vh;
 }
 
-.Logo {
-    //TODO: remove this
-    width: 90vh!important;
-}
-
-.mask {
-    position: fixed;
-    top:0;
-    left:0;
-    right: 0;
-    bottom: 0;
-    background-color: transparentize(--bianca, 0.9);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction:column;
-
-    .heading {
-        font-size: 60px;
-        font-weight: bold;
-    }
-
-    .description {
-        font-size: 30px;
-        margin-top: 15px;
-    }
+.loadingLogo {
+    width: 35vw;
+    max-width: 40vh;
 }

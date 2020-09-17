@@ -1,10 +1,12 @@
 @import '../../styles/global/mixins';
+@import '../../styles/global/breakpoints';
+
 
 .ImageCard {
     display: block;
 
     .Figure {
-        width: 16rem;
+        width: 20.2rem;
         position:relative;
         overflow: hidden;
         border-radius: 0.25rem;
@@ -12,12 +14,18 @@
         background-repeat: no-repeat;
         background-position: center;
 
+        @include media(">=tablet", "<=desktop") {
+            width: 14.8rem;
+        }
+
+
         &:focus figcaption {
             opacity: 1;
         }
 
         .Image {
             width: 100%;
+            min-height: 300px;
             z-index: 0;
             opacity: 0;
             pointer-events: none;
@@ -59,7 +67,7 @@
         padding: 1rem 0;
         text-align: center;
         width: 100%;
-        margin: 2rem 0 3rem;
+        margin: 10% 0;
         border-top: 2px solid var(--tuna);
         border-bottom: 2px solid var(--tuna);
     }
