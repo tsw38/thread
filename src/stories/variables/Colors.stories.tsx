@@ -4,7 +4,7 @@ import {Story, Meta} from '@storybook/react/types-6-0'
 import className from 'classnames'
 
 export default {
-    title: 'Variables',
+    title: 'Common/Variables',
 } as Meta
 
 import styles from './colors.module.scss'

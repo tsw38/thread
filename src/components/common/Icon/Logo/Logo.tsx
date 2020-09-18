@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 import styles from './Logo.module.scss';
-import ColorType from '../../../types/color';
+import ColorType from '../../../../types/color';
 
 export interface LogoProps {
     className?: string,

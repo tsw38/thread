@@ -1,0 +1,41 @@
+.ImageGallery {
+    display: grid;
+    width: 100%;
+    grid-template-areas:
+        "primary primary primary primary"
+        "item1 item2 item3 item4";
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+}
+
+.image {
+    border-radius: 5px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.primaryImage {
+    composes: image;
+    grid-area: primary;
+    width: 100%;
+    padding-top: 118%;
+}
+
+.hiddenImage {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.imageRowItem {
+    composes: image;
+    width: 100%;
+    padding-top: 100%;
+}
+
+
+@for $i from 1 through 4 {
+    .imageRowItem-#{$i} {
+        grid-area: item#{$i};
+    }
+}

@@ -145,6 +145,8 @@ export default class API {
                             }`,
                             payload,
                         })
+
+                        console.log(payload);
                     }
 
                     resolve(payload)

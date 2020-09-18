@@ -30,6 +30,7 @@ const Button: React.FC<ButtonProps> = ({
             [styles['Button--hover']]: className === 'hover',
             [styles['Button--click']]: className === 'click',
             [styles['Button--disabled']]: disabled,
+            [className]: !['hover', 'click'].includes(className)
         })}
     >
         {children}

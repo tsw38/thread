@@ -14,7 +14,7 @@ const createNewDir = ({path}) => {
 
 const createSassFile = ({path, component}) => {
     fs.writeFileSync(
-        `${path}/${component}.scss`,
+        `${path}/${component}.module.scss`,
         `.${component} {\r\r}`,
         'utf-8'
     )
@@ -32,14 +32,14 @@ const createComponentFile = ({path, component}) => {
 import React from 'react';
 import classNames from 'classnames';
 
-import './${component}.scss';
+import styles from './${component}.module.scss';
 
 export interface ${component}Props {
 }
 
 const ${component}: React.FC<${component}Props> = ({
     ...props
-}) => null;
+}) => <div className={styles.${component}}></div>;
 
 export default ${component};
 `
@@ -52,6 +52,9 @@ const createStoryFile = ({path, component}) => {
 import React from 'react';
 import {Story, Meta} from '@storybook/react/types-6-0';
 import ${component}Component from './${component}';
+
+// uncommment this line to include styles only for the story
+// import styles from "./${component}.stories.module.scss"
 
 export default {
     title: '${component}',

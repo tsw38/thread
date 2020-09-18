@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React, {useState} from 'react'
 import Gallery from 'react-masonry-component';
-import ImageCard, {ImageCardProps} from '../Card/Image';
+import ImageCard, {ImageCardProps} from './Card/Image';
 
 import styles from './Masonry.module.scss';
 

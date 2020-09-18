@@ -3,7 +3,7 @@ import Link from '../common/Link'
 import classNames from 'classnames'
 
 import Ribbon from './Ribbon'
-import {Logo} from '../Icon'
+import {Logo} from '../common/Icon'
 import ColorType from '../../types/color'
 
 import styles from './Navigation.module.scss'

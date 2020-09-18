@@ -5,7 +5,7 @@ import { Meta } from '@storybook/react/types-6-0';
 import LogoComponent from './Logo';
 
 import storyStyles from './Logo.stories.module.scss';
-import {colors} from '../../../types/color';
+import {colors} from '../../../../types/color';
 
 export default {
     title: 'Icons/Logo',

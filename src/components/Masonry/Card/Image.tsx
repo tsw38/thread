@@ -1,10 +1,10 @@
 import React from 'react';
-import Link from '../common/Link';
+import Link from '../../common/Link';
 import classNames from 'classnames';
 
 import styles from './Image.module.scss';
 
-import {Logo} from '../Icon'
+import {Logo} from '../../common/Icon'
 
 export interface ImageCardProps {
     /**

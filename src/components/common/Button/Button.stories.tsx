@@ -17,13 +17,13 @@ const textArgType = {
 }
 
 export default {
-    title: 'Button',
+    title: 'Common/Button',
     component: ButtonComponent,
 } as Meta
 
 import styles from "./Button.stories.module.scss"
 
-export const AllStates = (args) => {
+export const Button = (args) => {
     return (
         <div className={styles.ButtonWrapper}>
             <div className={styles.Row}>
@@ -53,10 +53,10 @@ export const AllStates = (args) => {
         </div>
     )
 }
-AllStates.argTypes = {
+Button.argTypes = {
     color: colorControlType,
 }
-AllStates.args = {
+Button.args = {
     children: 'Button',
 }
 

@@ -3,7 +3,7 @@ import React, {useEffect} from 'react';
 import {createPortal} from 'react-dom';
 
 import styles from './LoadingPortal.module.scss';
-import {Logo} from '../../Icon';
+import {Logo} from '../Icon';
 
 export interface ModalProps {
     dark?: boolean,

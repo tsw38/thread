@@ -1,0 +1,17 @@
+// https://css-tricks.com/introducing-sass-modules/#import-built-in-sass-modules
+// math, color, string, list, map, selector, and meta
+@use 'sass:list';
+
+.Container {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--atomic_tangerine);
+}
+
+$colors: bianca, cupid, bizarre, manz, tickle_me_pink, corduroy, nugget, maroon_flush, tapestry, flamingo, mulberry, tuna;
+
+@for $i from 1 through 10 {
+    .Column-#{$i} {
+        background-color: var(--#{list.nth($colors, $i)});
+    }
+}

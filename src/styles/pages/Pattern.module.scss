@@ -1,0 +1,86 @@
+@import '../global/mixins';
+@import '../global/breakpoints';
+
+.techniquesUsed {
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.details {
+    > * + * {
+        margin-top: 1rem;
+    }
+
+    .cost {
+        color: var(--tapestry);
+        font-weight: 900;
+        text-transform: uppercase;
+        font-size: 1.25rem;
+    }
+
+    .description {
+        line-height: 1.1;
+
+        .header {
+            font-weight: 900;
+        }
+    }
+
+    .download {
+        text-transform: uppercase;
+        width: 100%;
+        letter-spacing: 0.25rem;
+    }
+
+    .langAndDifficulty {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-top: 1px solid darken(--bianca, 5%);
+        border-bottom: 1px solid darken(--bianca, 5%);
+    }
+}
+
+.boldHeader {
+    color: var(--corduroy);
+    margin-bottom: 0.5rem;
+}
+
+.gridCell {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+
+    .gridRow {
+        height: 2rem;
+        display: flex;
+        align-items: center;
+
+        > * {
+            height: inherit;
+        }
+    }
+}
+
+.gridCell + .gridCell {
+    border-left: 1px solid darken(--bianca, 5%);
+}
+
+.inDetail {
+    margin-top: 0;
+
+    .listItem {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 0;
+    }
+
+    .listItem + .listItem {
+        border-top: 1px solid darken(--bianca, 5%);
+    }
+}
+
+.detailHeader {
+    composes: boldHeader;
+    margin-bottom: 0;
+}
