@@ -11,7 +11,8 @@
         "build-storybook": "build-storybook",
         "cypress:open": "cypress open",
         "create-component": "node ./config/create-component",
-        "bump-version": "node ./config/version-bump"
+        "bump-version": "node ./config/version-bump",
+        "deploy": "git push production master"
     },
     "dependencies": {
         "axios": "^0.20.0",
