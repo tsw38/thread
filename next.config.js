@@ -14,6 +14,17 @@ module.exports = {
                 })
             }
         })
+        config.module.rules[0].oneOf.forEach((rule) => {
+            if (Array.isArray(rule.use)) {
+                rule.use.forEach((useRule) => {
+                    if (typeof useRule.options.modules === 'object') {
+                        useRule.options.modules = {
+                            localIdentName: '[local]-[emoji]',
+                        }
+                    }
+                })
+            }
+        })
 
         config.resolve.modules = ['src', ...config.resolve.modules]
 
