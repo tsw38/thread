@@ -8,7 +8,7 @@ module.exports = {
                 rule.use.forEach((useRule) => {
                     if (/(?<!post)css\-loader/.test(useRule.loader)) {
                         useRule.options.modules = {
-                            localIdentName: '[local]-[emoji]',
+                            localIdentName: '[local]',
                         }
                     }
                 })
