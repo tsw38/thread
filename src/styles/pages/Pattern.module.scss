@@ -7,7 +7,7 @@
 }
 // TODO: move global styles and compose them
 
-.techniquesUsed {
+.notes {
     composes: h3;
 }
 
@@ -93,4 +93,9 @@
 .detailHeader {
     composes: boldHeader;
     margin-bottom: 0;
+    padding-right: 0.5rem;
+}
+
+.detailValue {
+    text-align: right;
 }

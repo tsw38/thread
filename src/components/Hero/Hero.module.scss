@@ -8,12 +8,12 @@
     .TextWrapper {
         height: 100%;
         display: flex;
-        max-height: 15rem;
+        // max-height: 20vh;
         color: var(--bianca);
         flex-direction: column;
         font-family: 'Overpass';
         background-color: transparentize(--tuna, 0.65);
-        padding: 4rem 1rem;
+        padding: 8vh 1rem;
     }
 
     .Title {

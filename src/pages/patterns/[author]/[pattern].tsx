@@ -37,12 +37,12 @@ const query = ({title, author}) => ({
         difficulty: true,
         downloadUrl: true,
         suggestedYarn: true,
-        techniquesUsed: true,
+        notes: true,
         publicationDate: true,
         languages: true,
         originalSource: {
             url: true,
-            name: true
+            name: true,
         },
         images: {
             src: true,
@@ -54,6 +54,8 @@ const query = ({title, author}) => ({
 export default function UserPattern({API, patternData, ...props}) {
     const router = useRouter()
     const {author, pattern} = router.query
+
+    console.warn('ehhlo', patternData)
     // TODO: dont know if I need this
     // const [patterns, {getPattern}] = usePatternState(
     //     getInitialState(props.patterns),
@@ -61,8 +63,8 @@ export default function UserPattern({API, patternData, ...props}) {
     // )
 
     const downloadPattern = () => {
-        console.warn('might have to figure this out later, DOWNLOAD PATTERN')
-        // API.download(patternData.downloadUrl);
+        // TODO: downloading, may not always want to open pdf
+        window.open(patternData.downloadUrl)
     }
 
     return (
@@ -82,10 +84,13 @@ export default function UserPattern({API, patternData, ...props}) {
                     <Container columns={2}>
                         <Column>
                             <ImageGallery images={patternData.images} />
-                            <h3 className={styles.techniquesUsed}>
-                                Techniques Used
-                            </h3>
-                            <RichText>{patternData.techniquesUsed}</RichText>
+
+                            {patternData.notes && (
+                                <>
+                                    <h3 className={styles.notes}>Notes:</h3>
+                                    <RichText>{patternData.notes}</RichText>
+                                </>
+                            )}
                             <div className={styles.originalSource}>
                                 <h3 className={styles.sourceHeading}>
                                     Original Source:
@@ -103,12 +108,14 @@ export default function UserPattern({API, patternData, ...props}) {
                             <p className={styles.cost}>
                                 {!patternData.cost ? 'Free' : patternData.cost}
                             </p>
-                            <p className={styles.description}>
-                                <span className={styles.header}>
-                                    Pattern Description:
-                                </span>{' '}
-                                {patternData.description}
-                            </p>
+                            {patternData.description && (
+                                <p className={styles.description}>
+                                    <span className={styles.header}>
+                                        Pattern Description:
+                                    </span>{' '}
+                                    {patternData.description}
+                                </p>
+                            )}
                             <Button
                                 onClick={downloadPattern}
                                 className={styles.download}
@@ -237,6 +244,8 @@ export const getServerSideProps = async ({query: {author, pattern}}) => {
     const patternData = await axios.get({
         query: query({title: pattern, author}),
     })
+
+    console.warn("I'm not hopeful", pattern, author)
 
     return {
         props: {

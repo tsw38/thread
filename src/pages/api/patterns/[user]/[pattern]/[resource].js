@@ -1,5 +1,7 @@
 import httpProxyMiddleware from 'next-http-proxy-middleware'
 
+const isProd = process.env.PROXY || process.env.NODE_ENV === 'production'
+
 export default (req, res) => {
     switch (req.method) {
         case 'GET':
@@ -7,9 +9,15 @@ export default (req, res) => {
                 query: {user, pattern, resource},
             } = req
 
+            console.warn({user, pattern, resource})
+
             return httpProxyMiddleware(req, res, {
                 changeOrigin: true,
-                target: `${process.env.API_URL}/patterns/${user}/${pattern}/${resource}`,
+                target: `${
+                    isProd
+                        ? 'https://api.thread.community'
+                        : process.env.API_URL
+                }/patterns/${user}/${pattern}/${resource}`,
                 pathRewrite: {
                     '^/api.+': '',
                 },

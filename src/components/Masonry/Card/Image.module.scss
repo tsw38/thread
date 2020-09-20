@@ -4,6 +4,11 @@
 
 .ImageCard {
     display: block;
+    text-decoration: none;
+
+    &:hover {
+        color: initial;
+    }
 
     .Figure {
         width: 20.2rem;

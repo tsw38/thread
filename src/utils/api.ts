@@ -1,6 +1,8 @@
 import axios from 'axios'
 import {jsonToGraphQLQuery} from 'json-to-graphql-query'
 
+const isProd = process.env.PROXY || process.env.NODE_ENV === 'production';
+
 interface CreateProps {
     isServer?: boolean
     options?: object
@@ -22,7 +24,7 @@ export default class API {
         this.isServer = isServer
 
         this.instance = axios.create({
-            baseURL: process.env.API_URL,
+            baseURL: isProd ? 'https://api.thread.community' : process.env.API_URL,
             timeout: 5000,
             headers: {
                 'Content-Type': 'application/json',
@@ -107,9 +109,11 @@ export default class API {
             })
         }
 
+        console.log(this.toQuery(query))
+
         return new Promise((resolve) => {
             this.instance
-                .post('/api', {
+                .post(isProd ? '/' : '/api', {
                     query: this.toQuery(query),
                 })
                 .then(this.massage(query))

@@ -3,8 +3,9 @@
     "version": "0.0.1",
     "private": true,
     "scripts": {
-        "dev": "next dev -p 4450",
-        "build": "next build",
+        "dev": "NODE_ENV=development next dev -p 4450",
+        "proxy": "PROXY=true yarn dev",
+        "build": "NODE_ENV=production next build",
         "start": "next start -p 4450",
         "storybook": "start-storybook -p 4460",
         "build-storybook": "build-storybook",
