@@ -19,19 +19,10 @@ export default class API {
     create(args?: CreateProps) {
         const {isServer = false, options = {}, headers = {}} = {...args}
 
-        const isProxying = [true, 'true'].includes(process.env.SET_PROXY)
-        const isDevelopment = process.env.NODE_ENV === 'development'
-
-        let baseURL = 'http://localhost:4560'
-
-        if ((isDevelopment && isProxying) || !isDevelopment) {
-            baseURL = 'https://www.thread.community'
-        }
-
         this.isServer = isServer
 
         this.instance = axios.create({
-            baseURL,
+            baseURL: process.env.API_URL,
             timeout: 5000,
             headers: {
                 'Content-Type': 'application/json',
@@ -63,7 +54,7 @@ export default class API {
 
         const operationName = this.getOperationName(query)
 
-        console.warn(data);
+        // console.warn(data);
 
         return (
             data.data?.[operationName]?.[operationName] ??
@@ -146,8 +137,10 @@ export default class API {
                             payload,
                         })
 
-                        console.log(payload);
+                        // console.log(payload);
                     }
+
+                    // console.log('what is the payload', payload)
 
                     resolve(payload)
                     payload = null
@@ -155,14 +148,13 @@ export default class API {
         })
     }
 
-    // Even though graphql POSTS everything, make it clear that this is only getting information, not setting
-    // post({url, query = {}, onSuccess, onError, onComplete} = defaultParams) {
-    //     if (!this.instance) {
-    //         throw new Error(
-    //             'You must have forgotten to create an instance, you can do that by calling API.create()'
-    //         )
-    //     }
+    download(url) {
+        return new Promise(resolve => {
+            console.log(url);
+            // this.instance.get(url).then(resolve);
+            window.open(url);
 
-    //     throw new Error('TODO: make a post method that does a mutation')
-    // }
+            resolve();
+        })
+    }
 }

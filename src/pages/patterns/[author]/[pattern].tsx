@@ -8,6 +8,7 @@ import {useEffect, useState} from 'react'
 import Hero from 'components/Hero/Hero'
 import {Flag} from 'components/common/Icon'
 import Button from 'components/common/Button'
+import RichText from 'components/common/RichText/RichText'
 import {Container, Column} from 'components/common/Layout'
 import ImageGallery from 'components/common/ImageGallery/ImageGallery'
 
@@ -28,6 +29,7 @@ const query = ({title, author}) => ({
         craft: true,
         yardage: true,
         category: true,
+        hookSize: true,
         needleSize: true,
         yarnWeight: true,
         description: true,
@@ -38,6 +40,10 @@ const query = ({title, author}) => ({
         techniquesUsed: true,
         publicationDate: true,
         languages: true,
+        originalSource: {
+            url: true,
+            name: true
+        },
         images: {
             src: true,
             alt: true,
@@ -54,13 +60,14 @@ export default function UserPattern({API, patternData, ...props}) {
     //     API
     // )
 
-    const patternKeys = Object.keys(patternData)
-
-    useEffect(() => {}, [])
+    const downloadPattern = () => {
+        console.warn('might have to figure this out later, DOWNLOAD PATTERN')
+        // API.download(patternData.downloadUrl);
+    }
 
     return (
         <div>
-            {patternKeys.length ? (
+            {Object.keys(patternData).length > 1 ? (
                 <>
                     <NextSeo
                         title={`Thread | ${patternData.title}`}
@@ -78,12 +85,19 @@ export default function UserPattern({API, patternData, ...props}) {
                             <h3 className={styles.techniquesUsed}>
                                 Techniques Used
                             </h3>
-                            <div
-                                className="RichText"
-                                dangerouslySetInnerHTML={{
-                                    __html: patternData.techniquesUsed,
-                                }}
-                            />
+                            <RichText>{patternData.techniquesUsed}</RichText>
+                            <div className={styles.originalSource}>
+                                <h3 className={styles.sourceHeading}>
+                                    Original Source:
+                                </h3>{' '}
+                                <a
+                                    target="_blank"
+                                    href={patternData.originalSource?.url}
+                                    className={styles.originalSource}
+                                >
+                                    {patternData.originalSource.name}
+                                </a>
+                            </div>
                         </Column>
                         <Column className={styles.details}>
                             <p className={styles.cost}>
@@ -96,18 +110,14 @@ export default function UserPattern({API, patternData, ...props}) {
                                 {patternData.description}
                             </p>
                             <Button
-                                color="tapestry"
+                                onClick={downloadPattern}
                                 className={styles.download}
                             >
                                 Download
                             </Button>
                             <div className={styles.langAndDifficulty}>
                                 <div className={styles.gridCell}>
-                                    <h6
-                                        className={
-                                            styles.boldHeader
-                                        }
-                                    >
+                                    <h6 className={styles.boldHeader}>
                                         Languages
                                     </h6>
                                     <div className={styles.gridRow}>
@@ -121,16 +131,11 @@ export default function UserPattern({API, patternData, ...props}) {
                                     </div>
                                 </div>
                                 <div className={styles.gridCell}>
-                                    <h6
-                                        className={
-                                            styles.boldHeader
-                                        }
-                                    >
+                                    <h6 className={styles.boldHeader}>
                                         Difficulty
                                     </h6>
                                     <p className={styles.gridRow}>
-                                        {JSON.stringify(patternData.difficulty)}{' '}
-                                        of 5
+                                        {patternData.difficulty} of 5
                                     </p>
                                 </div>
                             </div>
@@ -140,49 +145,80 @@ export default function UserPattern({API, patternData, ...props}) {
                                     <span className={styles.detailHeader}>
                                         Published in
                                     </span>
-                                    <span className={styles.detailValue}>{patternData.publication}</span>
+                                    <span className={styles.detailValue}>
+                                        {patternData.publication}
+                                    </span>
                                 </li>
                                 <li className={styles.listItem}>
                                     <span className={styles.detailHeader}>
                                         Craft
                                     </span>
-                                    <span className={styles.detailValue}>{patternData.craft}</span>
+                                    <span className={styles.detailValue}>
+                                        {patternData.craft}
+                                    </span>
                                 </li>
                                 <li className={styles.listItem}>
                                     <span className={styles.detailHeader}>
                                         Category
                                     </span>
-                                    <span className={styles.detailValue}>{patternData.category}</span>
+                                    <span className={styles.detailValue}>
+                                        {patternData.category}
+                                    </span>
                                 </li>
                                 <li className={styles.listItem}>
                                     <span className={styles.detailHeader}>
                                         Published date
                                     </span>
-                                    <span className={styles.detailValue}>{patternData.publicationDate}</span>
+                                    <span className={styles.detailValue}>
+                                        {patternData.publicationDate}
+                                    </span>
                                 </li>
                                 <li className={styles.listItem}>
                                     <span className={styles.detailHeader}>
                                         Suggested yarn
                                     </span>
-                                    <span className={styles.detailValue}>{patternData.suggestedYarn}</span>
+                                    <span className={styles.detailValue}>
+                                        {patternData.suggestedYarn}
+                                    </span>
                                 </li>
                                 <li className={styles.listItem}>
                                     <span className={styles.detailHeader}>
                                         Yarn weight
                                     </span>
-                                    <span className={styles.detailValue}>{patternData.yarnWeight}</span>
-                                </li>
-                                <li className={styles.listItem}>
-                                    <span className={styles.detailHeader}>
-                                        Needle size
+                                    <span className={styles.detailValue}>
+                                        {patternData.yarnWeight}
                                     </span>
-                                    <span className={styles.detailValue}>{patternData.needleSize}</span>
                                 </li>
+
+                                {patternData.needleSize && (
+                                    <li className={styles.listItem}>
+                                        <span className={styles.detailHeader}>
+                                            Needle size
+                                        </span>
+                                        <span className={styles.detailValue}>
+                                            {patternData.needleSize}
+                                        </span>
+                                    </li>
+                                )}
+
+                                {patternData.hookSize && (
+                                    <li className={styles.listItem}>
+                                        <span className={styles.detailHeader}>
+                                            Hook size
+                                        </span>
+                                        <span className={styles.detailValue}>
+                                            {patternData.hookSize}
+                                        </span>
+                                    </li>
+                                )}
+
                                 <li className={styles.listItem}>
                                     <span className={styles.detailHeader}>
                                         Yarnage
                                     </span>
-                                    <span className={styles.detailValue}>{patternData.yardage}</span>
+                                    <span className={styles.detailValue}>
+                                        {patternData.yardage}
+                                    </span>
                                 </li>
                             </ul>
                         </Column>

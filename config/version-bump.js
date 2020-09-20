@@ -3,11 +3,12 @@ const path = require('path')
 const {execSync} = require('child_process')
 
 const bumpTagVersion = (packageJson) => {
-    const semverType = process.argv[2]
+    const semverType = process.argv[2].split('--')[0]
+    const isAlpha = process.argv.find((item) => /alpha/gi.test(item))
     let major, minor, patch
 
     if (packageJson) {
-        const version = packageJson.version.split('.')
+        const version = packageJson.version.split('-')[0].split('.')
 
         major = version[0]
         minor = version[1]
@@ -25,14 +26,21 @@ const bumpTagVersion = (packageJson) => {
         patch = splitTag[2] || 0
     }
 
+    let newVersion
+
     switch (semverType) {
         case 'major':
-            return `${Number(major) + 1}.0.0`
+            newVersion = `${Number(major) + 1}.0.0`
+            break
         case 'minor':
-            return `${major}.${Number(minor) + 1}.0`
+            newVersion = `${major}.${Number(minor) + 1}.0`
+            break
         default:
-            return `${major}.${minor}.${Number(patch) + 1}`
+            newVersion = `${major}.${minor}.${Number(patch) + 1}`
+            break
     }
+
+    return `${newVersion}${isAlpha ? '-alpha' : ''}`
 }
 
 const bumpPackageVersion = () => {

@@ -23,4 +23,7 @@
     @include createVariables(mulberry, 336, 56%, 55%);         // hsl(336, 56%, 55%))
 
     @include createVariables(tuna, 240, 8%, 20%);              // hsl(240, 8%, 20%))
+
+    --primary: var(--tapestry);
+    --border: 1px solid #{darken(--bianca, 5%)};
 }

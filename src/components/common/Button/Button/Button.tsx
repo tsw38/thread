@@ -7,7 +7,7 @@ import ColorType from '../../../../types/color';
 export interface ButtonProps {
     disabled?: boolean
     className?: string
-    onClick?: MouseEvent
+    onClick?: MouseEvent | (() => void)
     color?: ColorType['color'],
     children: React.ReactNode | string
 }

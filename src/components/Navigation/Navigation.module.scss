@@ -1,4 +1,12 @@
 .Navigation {
+    a {
+        text-decoration: none;
+
+        &:hover {
+            color: initial;
+        }
+    }
+
     .bar {
         display: flex;
         flex-direction: row;

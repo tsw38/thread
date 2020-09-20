@@ -1,0 +1,18 @@
+$colors: bianca, bizarre, manz, atomic_tangerine, tickle_me_pink, corduroy, tapestry, flamingo, tuna, cupid, maroon_flush, mulberry;
+
+.Footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    padding: 0.5rem;
+    color: var(--bianca);
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+
+    @each $color in $colors {
+        &-#{$color} {
+            background-color: var(--#{$color});
+        }
+    }
+}

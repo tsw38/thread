@@ -1,4 +1,4 @@
-import Navigation from 'components/Navigation/Navigation'
+import Navigation, {Ribbon, Footer} from 'components/Navigation'
 
 import 'styles/globals.scss'
 
@@ -18,6 +18,9 @@ function MyApp({Component, pageProps}) {
                     API={axios}
                 />
             </main>
+            <Footer>
+                <p>&copy; {new Date().getFullYear()} thread.community</p>
+            </Footer>
         </>
     )
 }
