@@ -6,7 +6,7 @@ module.exports = {
         config.module.rules[1].oneOf.forEach((rule) => {
             if (Array.isArray(rule.use)) {
                 rule.use.forEach((useRule) => {
-                    if (typeof useRule.options.modules === 'object') {
+                    if (/(?<!post)css\-loader/.test(useRule.loader)) {
                         useRule.options.modules = {
                             localIdentName: '[local]-[emoji]',
                         }
@@ -14,17 +14,17 @@ module.exports = {
                 })
             }
         })
-        config.module.rules[0].oneOf.forEach((rule) => {
-            if (Array.isArray(rule.use)) {
-                rule.use.forEach((useRule) => {
-                    if (typeof useRule.options.modules === 'object') {
-                        useRule.options.modules = {
-                            localIdentName: '[local]-[emoji]',
-                        }
-                    }
-                })
-            }
-        })
+        // config.module.rules[0].oneOf.forEach((rule) => {
+        //     if (Array.isArray(rule.use)) {
+        //         rule.use.forEach((useRule) => {
+        //             if (typeof useRule.options.modules === 'object') {
+        //                 useRule.options.modules = {
+        //                     localIdentName: '[local]-[emoji]',
+        //                 }
+        //             }
+        //         })
+        //     }
+        // })
 
         config.resolve.modules = ['src', ...config.resolve.modules]
 
