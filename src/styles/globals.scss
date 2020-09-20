@@ -5,3 +5,12 @@
 
 @import './global/reset';
 @import './global/typography';
+
+.FooterLink {
+    margin-left: 0.5rem;
+    color: var(--bianca);
+
+    &:hover {
+        color: var(--tuna);
+    }
+}

@@ -1,4 +1,5 @@
 import Navigation, {Ribbon, Footer} from 'components/Navigation'
+import Link from 'components/common/Link';
 
 import 'styles/globals.scss'
 
@@ -19,7 +20,11 @@ function MyApp({Component, pageProps}) {
                 />
             </main>
             <Footer>
-                <p>&copy; {new Date().getFullYear()} thread.community</p>
+                <p>&copy; {new Date().getFullYear()} thread.community </p>
+
+                <Link href="/about">
+                    <a className="FooterLink">About</a>
+                </Link>
             </Footer>
         </>
     )

@@ -109,7 +109,7 @@ export default class API {
             })
         }
 
-        console.log(this.toQuery(query))
+        // console.log(this.toQuery(query))
 
         return new Promise((resolve) => {
             this.instance

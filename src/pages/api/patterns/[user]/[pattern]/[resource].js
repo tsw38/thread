@@ -9,7 +9,7 @@ export default (req, res) => {
                 query: {user, pattern, resource},
             } = req
 
-            console.warn({user, pattern, resource})
+            // console.warn({user, pattern, resource})
 
             return httpProxyMiddleware(req, res, {
                 changeOrigin: true,

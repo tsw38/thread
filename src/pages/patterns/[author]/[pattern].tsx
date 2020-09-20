@@ -55,7 +55,7 @@ export default function UserPattern({API, patternData, ...props}) {
     const router = useRouter()
     const {author, pattern} = router.query
 
-    console.warn('ehhlo', patternData)
+    // console.warn('ehhlo', patternData)
     // TODO: dont know if I need this
     // const [patterns, {getPattern}] = usePatternState(
     //     getInitialState(props.patterns),
@@ -245,7 +245,7 @@ export const getServerSideProps = async ({query: {author, pattern}}) => {
         query: query({title: pattern, author}),
     })
 
-    console.warn("I'm not hopeful", pattern, author)
+    // console.warn("I'm not hopeful", pattern, author)
 
     return {
         props: {

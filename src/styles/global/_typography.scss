@@ -164,3 +164,11 @@ a {
         color: var(--primary);
     }
 }
+
+:root {
+    --extra-light: 100;
+    --light: 300;
+    --normal: 400;
+    --bold: 600;
+    --black: 900;
+}

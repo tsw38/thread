@@ -13,7 +13,7 @@ interface ReducerInterface extends ReducerProps {
 export const getInitialState = (patterns = {}) => ({...patterns})
 
 const reducer = (state, {type, payload}): ReducerInterface => {
-    console.log('this is the reducer', {state, type, payload})
+    // console.log('this is the reducer', {state, type, payload})
 
     switch (type) {
         case `${GET_PATTERN}_SUCCESS`:
