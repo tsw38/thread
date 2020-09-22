@@ -20,3 +20,9 @@ jobs:
           environment:
             NODE_OPTIONS: --max_old_space_size=5000
             NODE_ENV: test
+      - run:
+          name: Upload Coverage
+          command: yarn coverage:upload
+      - run:
+          name: Deploy To Production
+          command: echo "Deploy to production"
