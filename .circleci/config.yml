@@ -23,7 +23,7 @@ jobs:
           name: Test
           command: yarn test
           environment:
-            NODE_OPTIONS: --max_old_space_size=5000
+            NODE_OPTIONS: --max_old_space_size=8000
             NODE_ENV: test
       - run:
           name: Upload Coverage
