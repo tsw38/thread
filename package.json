@@ -82,7 +82,7 @@
     },
     "jest": {
         "transform": {
-            ".(ts|tsx)": "ts-jest"
+            ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
         },
         "moduleNameMapper": {
             "\\.(css|less|s(c|a)ss)$": "<rootDir>/.jest/styleMock.js"
