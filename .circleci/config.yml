@@ -4,9 +4,10 @@ orbs:
 
 jobs:
   build:
-    branches:
-      only:
-        - master
+    filters:
+      branches:
+        only:
+          - master
     docker:
       - image: 'node:12.18.3'
     steps:
