@@ -9,4 +9,4 @@ jobs:
       - checkout
       - run:
           name: Install Node Modules
-          command: yarn install && yarn test
+          command: node -v && npm --v && yarn --v
