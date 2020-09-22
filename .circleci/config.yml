@@ -3,7 +3,8 @@ orbs:
   typescript: vidsy/typescript@1.0.0
 
 jobs:
-  build:
+  master:
+    branch: master
     docker:
       - image: 'node:12.18.3'
     steps:
@@ -24,5 +25,8 @@ jobs:
           name: Upload Coverage
           command: yarn coverage:upload
       - run:
-          name: Deploy To Production
-          command: echo "Deploy to production"
+          name: Build
+          command: yarn build
+      - run:
+          name: Deploy to Production
+          command: scp -r ./ $SSH_USER@$SSH_LOCATION:$SSH_PROJECT_DIR
