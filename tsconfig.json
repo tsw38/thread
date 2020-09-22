@@ -33,9 +33,7 @@
   "types": [
     "jest",
     "node",
-    "react",
-    "cypress",
-    "jest-extended"
+    "cypress"
   ],
   "include": [
     "next-env.d.ts",
