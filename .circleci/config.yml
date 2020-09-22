@@ -1,4 +1,6 @@
 version: 2.1
+
+
 jobs:
   build:
     docker:
@@ -7,4 +9,4 @@ jobs:
       - checkout
       - run:
           name: Install Node Modules
-          command: yarn && yarn test
+          command: yarn install && ls -asl
