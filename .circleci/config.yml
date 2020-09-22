@@ -9,11 +9,11 @@ jobs:
     steps:
       - checkout
       - run: node --version
-      - run: npm --version
+      - run: yarn --version
       - run:
           name: Install Modules
           command: |
-              npm install;
+              yarn install;
       - run:
           name: Test
-          command: npm test
+          command: NODE_ENV=test yarn test
