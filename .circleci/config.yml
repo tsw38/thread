@@ -38,4 +38,8 @@ jobs:
       #     command: yarn build
       - run:
           name: Deploy to Production
-          command: scp -r ./ $SSH_USER@$SSH_LOCATION:$SSH_PROJECT_DIR
+          command: |
+            echo ${SSH_USER}
+            echo ${SSH_LOCATION}
+            echo ${SSH_PROJECT_DIR}
+            scp -r ./ ${SSH_USER}@${SSH_LOCATION}:${SSH_PROJECT_DIR}
