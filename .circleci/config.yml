@@ -10,11 +10,10 @@ jobs:
       - checkout
       - run: node --version
       - run: npm --version
-      - run: yarn --version
       - run:
           name: Install Modules
           command: |
-              yarn install;
+              npm install;
       - run:
           name: Test
-          command: yarn test
+          command: npm test
