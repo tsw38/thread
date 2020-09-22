@@ -12,4 +12,4 @@ jobs:
           command: yarn install
       - run:
           name: Test
-          command: ls -asl
+          command: ls -als
