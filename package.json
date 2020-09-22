@@ -12,6 +12,7 @@
         "cypress:open": "cypress open",
         "create-component": "node ./config/create-component",
         "bump-version": "node ./config/version-bump",
+        "push": "git push origin master",
         "deploy": "git push production master",
         "test": "jest --collectCoverage",
         "test:watch": "jest --watch"
