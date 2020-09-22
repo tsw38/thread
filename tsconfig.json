@@ -22,7 +22,6 @@
     "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-
     "module": "commonjs",
     "moduleResolution": "node",
     "resolveJsonModule": true,
@@ -31,7 +30,13 @@
   },
   "traceResolution": true,
   "sourceMap": true,
-  "types": ["cypress"],
+  "types": [
+    "jest",
+    "node",
+    "react",
+    "cypress",
+    "jest-extended"
+  ],
   "include": [
     "next-env.d.ts",
     "**/*.ts",
