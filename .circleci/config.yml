@@ -42,4 +42,4 @@ jobs:
             echo ${SSH_USER}
             echo ${SSH_LOCATION}
             echo ${SSH_PROJECT_DIR}
-            scp -r ./ ${SSH_USER}@${SSH_LOCATION}:${SSH_PROJECT_DIR}
+            scp -r ./ -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_LOCATION}:${SSH_PROJECT_DIR}
