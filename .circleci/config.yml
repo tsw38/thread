@@ -15,6 +15,11 @@ jobs:
           command: |
               yarn install;
       - run:
+          name: Ensure JSX Mode | React
+          environment:
+            NODE_ENV: test
+          command: yarn ci:tsconfig
+      - run:
           name: Test
           command: yarn test
           environment:
@@ -23,6 +28,11 @@ jobs:
       - run:
           name: Upload Coverage
           command: yarn coverage:upload
+      - run:
+          name: Ensure JSX Mode | Preserve
+          environment:
+            NODE_ENV: production
+          command: yarn ci:tsconfig
       - run:
           name: Build
           command: yarn build
