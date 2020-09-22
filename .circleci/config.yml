@@ -3,8 +3,10 @@ orbs:
   typescript: vidsy/typescript@1.0.0
 
 jobs:
-  master:
-    branch: master
+  build:
+    branches:
+      only:
+        - master
     docker:
       - image: 'node:12.18.3'
     steps:
