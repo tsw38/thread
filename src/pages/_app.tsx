@@ -1,5 +1,6 @@
-import Navigation, {Ribbon, Footer} from 'components/Navigation'
-import Link from 'components/common/Link';
+import React from 'react';
+import Link from 'components/common/Link/Link';
+import Navigation, {Footer} from 'components/Navigation'
 
 import 'styles/globals.scss'
 

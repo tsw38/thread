@@ -4,14 +4,16 @@ import '@testing-library/jest-dom'
 // NOTE: jest-dom adds handy assertions to Jest and is recommended, but not required
 
 import {render, fireEvent, screen} from '@testing-library/react'
+import Navigation from './Navigation'
 
-import LoadingPortal from './LoadingPortal'
-
-describe('LoadingPortal', () => {
+describe('Navigation', () => {
     it('renders properly', () => {
-        const {getByTestId} = render(<LoadingPortal/>)
+        const {getByText, getAllByTestId, getByTestId, debug} = render(
+            <Navigation />
+        )
 
-        expect(getByTestId('LoadingPortal')).toBeTruthy()
+        expect(getAllByTestId('Ribbon')).toHaveLength(2)
         expect(getByTestId('Logo')).toBeTruthy()
+        expect(getByText('thread')).toBeTruthy()
     })
 })

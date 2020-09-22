@@ -23,7 +23,7 @@ const Flag: React.FC<FlagProps> = ({
 	}
 
 	return (
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className={classNames(
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-testid={`Flag-${name}`} className={classNames(
 			styles.Flag,
 			styles[`Flag--${name}`],
 			className

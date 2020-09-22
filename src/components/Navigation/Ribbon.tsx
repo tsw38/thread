@@ -22,7 +22,7 @@ const Ribbon: React.FC<RibbonProps> = ({
     ...props
 }) => {
     return (
-        <div className={classNames(styles.Ribbon, styles[`Ribbon--${color}`])}>
+        <div data-testid="Ribbon" className={classNames(styles.Ribbon, styles[`Ribbon--${color}`])}>
             {children}
         </div>
     )

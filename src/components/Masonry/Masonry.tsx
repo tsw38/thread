@@ -14,6 +14,10 @@ const Masonry: React.FC<MasonryProps> = ({
     elements,
     ...masonryOptions
 }) => {
+    if (!elements.length) {
+        return null;
+    }
+
     const [layoutComplete, setLayoutComplete] = useState(false);
 
     const childElements = elements.map((element, index) => {
@@ -28,6 +32,7 @@ const Masonry: React.FC<MasonryProps> = ({
 
     return (
         <Gallery
+            data-testid="Masonry"
             className={classNames(styles.Masonry, {
                 [styles['Masonry-hidden']]: !layoutComplete
             })}

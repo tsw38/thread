@@ -3,6 +3,8 @@ import React from 'react'
 import {Story, Meta} from '@storybook/react/types-6-0'
 import MasonryComponent from './Masonry'
 
+import {MasonryElements} from './sample-data';
+
 export default {
     title: 'Masonry/Grid',
     component: MasonryComponent,
@@ -10,88 +12,7 @@ export default {
 
 export const Default = () => {
     const args = {
-        elements: [
-            {
-                url: '#some-url',
-                title: 'Clapton',
-                author: 'Isabelle Krimer',
-                img: {
-                    src: 'https://picsum.photos/100/200',
-                },
-            },
-            {
-                url: '#some-url',
-                title: 'Clapton',
-                author: 'Isabelle Krimer',
-                img: {
-                    src: 'https://picsum.photos/300/250',
-                },
-            },
-            {
-                url: '#some-url',
-                title: 'Clapton',
-                author: 'Isabelle Krimer',
-                img: {
-                    src: 'https://picsum.photos/250/300',
-                },
-            },
-            {
-                url: '#some-url',
-                title: 'Clapton',
-                author: 'Isabelle Krimer',
-                img: {
-                    src: 'https://picsum.photos/200/400',
-                },
-            },
-            {
-                url: '#some-url',
-                title: 'Clapton',
-                author: 'Isabelle Krimer',
-                img: {
-                    src: 'https://picsum.photos/200/500',
-                },
-            },
-            {
-                url: '#some-url',
-                title: 'Clapton',
-                author: 'Isabelle Krimer',
-                img: {
-                    src: 'https://picsum.photos/100/200',
-                },
-            },
-            {
-                url: '#some-url',
-                title: 'Clapton',
-                author: 'Isabelle Krimer',
-                img: {
-                    src: 'https://picsum.photos/300/250',
-                },
-            },
-            {
-                url: '#some-url',
-                title: 'Clapton',
-                author: 'Isabelle Krimer',
-                img: {
-                    src: 'https://picsum.photos/250/300',
-                },
-            },
-            {
-                url: '#some-url',
-                title: 'Clapton',
-                author: 'Isabelle Krimer',
-                img: {
-                    src: 'https://picsum.photos/200/400',
-                },
-            },
-            {
-                url: '#some-url',
-                title: 'Clapton',
-                author: 'Isabelle Krimer',
-                img: {
-                    src: 'https://picsum.photos/200/500',
-                },
-            },
-        ],
+        elements: MasonryElements,
     }
 
     return <MasonryComponent {...args} />;

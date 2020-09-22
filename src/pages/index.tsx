@@ -1,6 +1,6 @@
-import {useEffect, useState} from 'react'
 import {NextSeo} from 'next-seo'
 import classNames from 'classnames';
+import React, {useEffect} from 'react';
 
 import {Logo} from 'components/common/Icon';
 import Grid from 'components/Masonry/Masonry';

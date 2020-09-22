@@ -1,8 +1,7 @@
+import React from 'react'
 import {NextSeo} from 'next-seo'
-import classNames from 'classnames'
 
 import {Logo} from 'components/common/Icon'
-// import Grid from 'components/Masonry/Masonry'
 
 import styles from 'styles/pages/About.module.scss'
 

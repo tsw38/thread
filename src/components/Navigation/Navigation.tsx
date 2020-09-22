@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from '../common/Link'
+import Link from '../common/Link/Link'
 import classNames from 'classnames'
 
 import Ribbon from './Ribbon'

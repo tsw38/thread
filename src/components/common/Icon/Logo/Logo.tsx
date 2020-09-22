@@ -28,6 +28,7 @@ const Logo: React.FC<LogoProps> = ({
 }) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
+        data-testid="Logo"
         className={classNames(
             styles.Logo,
             styles[`Logo--${color}${mono ? '-mono' : ''}`],

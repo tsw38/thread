@@ -16,22 +16,24 @@ export interface ImageGalleryProps {
 }
 
 const ImageGallery: React.FC<ImageGalleryProps> = ({images, className}) => {
-    if (!images.length) {
+    if (!images.length || !images.some(image => image.primary)) {
         return null;
     }
 
     const {primary, ...primaryImage} = images.find(image => image.primary);
-    const nonPrimaryImages = images.filter(image => !image.primary);
+    const nonPrimaryImages = images.filter(image => !image.primary).slice(0, 4);
 
     return (
-        <div className={classNames(styles.ImageGallery, className)}>
+        <div className={classNames(styles.ImageGallery, className)} data-testid="ImageGallery">
             <div
                 className={styles.primaryImage}
+                data-testid="ImageGallery-Primary"
                 style={{backgroundImage: `url(${primaryImage.src})`}}
             />
 
             {nonPrimaryImages.map((image, index) => (
                 <div
+                    data-testid={`ImageGallery-${index}`}
                     className={classNames(
                         styles.imageRowItem,
                         styles[`imageRowItem-${index + 1}`]

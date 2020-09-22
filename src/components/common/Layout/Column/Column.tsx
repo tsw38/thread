@@ -10,7 +10,7 @@ export interface ColumnProps {
 }
 
 const Column: React.FC<ColumnProps> = ({className, children, ...props}) => (
-    <div className={classNames(styles.Column, className)}>{children}</div>
+    <div data-testid="Column" className={classNames(styles.Column, className)}>{children}</div>
 )
 
 export default Column;

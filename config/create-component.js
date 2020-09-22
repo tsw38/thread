@@ -23,7 +23,21 @@ const createSassFile = ({path, component}) => {
 const createTestFile = ({path, component}) => {
     fs.writeFileSync(
         `${path}/${component}.spec.tsx`,
-        "import React from 'react';"
+        `
+import React from 'react';
+import '@testing-library/jest-dom'
+// NOTE: jest-dom adds handy assertions to Jest and is recommended, but not required
+
+import {render, fireEvent, screen} from '@testing-library/react'
+
+import ${component} from './${component}';
+
+describe('${component}', () => {
+    it('renders properly', () => {
+        expect(true).toBeTruthy();
+    })
+})
+        `
     )
 }
 
@@ -39,7 +53,7 @@ export interface ${component}Props {
 
 const ${component}: React.FC<${component}Props> = ({
     ...props
-}) => <div className={styles.${component}}></div>;
+}) => <div data-testid={${component}} className={styles.${component}}></div>;
 
 export default ${component};
 `

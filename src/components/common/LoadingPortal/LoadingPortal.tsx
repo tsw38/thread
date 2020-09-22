@@ -23,6 +23,7 @@ const Portal: React.FC<ModalProps> = ({children, dark}) => {
     const el = document.createElement('div')
 
     el.classList.add(...[styles.LoadingPortal, dark && styles['LoadingPortal--dark']].filter(Boolean));
+    el.setAttribute('data-testid', 'LoadingPortal')
 
     useEffect(() => {
         mount.appendChild(el)

@@ -11,7 +11,7 @@ export interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({children, color = 'tapestry'}) => (
-    <footer className={classNames(styles.Footer, styles[`Footer-${color}`])}>
+    <footer data-testid="Footer" className={classNames(styles.Footer, styles[`Footer-${color}`])}>
         {children}
     </footer>
 )
