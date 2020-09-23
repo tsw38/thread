@@ -39,4 +39,4 @@ jobs:
           name: Deploy to Production
           command: |
             ls -asl
-            scp -o StrictHostKeyChecking=no $(pwd) ${SSH_USER}@${SSH_LOCATION}:${SSH_PROJECT_DIR}
+            scp -o StrictHostKeyChecking=no -r $(pwd) ${SSH_USER}@${SSH_LOCATION}:${SSH_PROJECT_DIR}
