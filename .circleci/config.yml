@@ -38,5 +38,4 @@ jobs:
       - run:
           name: Deploy to Production
           command: |
-            ls -asl
-            scp -o StrictHostKeyChecking=no -r $(pwd) ${SSH_USER}@${SSH_LOCATION}:${SSH_PROJECT_DIR}
+            rsync -avP -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" $(pwd)/ ${SSH_USER}@${SSH_LOCATION}:${SSH_PROJECT_DIR}
