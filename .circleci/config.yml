@@ -8,40 +8,35 @@ jobs:
       - image: 'node:12.18.3'
     steps:
       - checkout
+      - run: node --version
+      - run: yarn --version
       - run:
-          name: tempting fate
+          name: Install Modules
+          command: yarn install
+      - run:
+          name: Ensure JSX Mode | React
+          environment:
+            NODE_ENV: test
+          command: yarn ci:tsconfig
+      - run:
+          name: Test
+          command: yarn test
+          environment:
+            NODE_OPTIONS: --max_old_space_size=8000
+            NODE_ENV: test
+      - run:
+          name: Upload Coverage
+          command: yarn coverage:upload
+      - run:
+          name: Ensure JSX Mode | Preserve
+          environment:
+            NODE_ENV: production
+          command: yarn ci:tsconfig
+      - run:
+          name: Build
+          command: yarn build
+      - run:
+          name: Deploy to Production
           command: |
-            cd ../;
-            ls -asl;
-      # - run: node --version
-      # - run: yarn --version
-      # - run:
-      #     name: Install Modules
-      #     command: yarn install
-      # - run:
-      #     name: Ensure JSX Mode | React
-      #     environment:
-      #       NODE_ENV: test
-      #     command: yarn ci:tsconfig
-      # - run:
-      #     name: Test
-      #     command: yarn test
-      #     environment:
-      #       NODE_OPTIONS: --max_old_space_size=8000
-      #       NODE_ENV: test
-      # - run:
-      #     name: Upload Coverage
-      #     command: yarn coverage:upload
-      # - run:
-      #     name: Ensure JSX Mode | Preserve
-      #     environment:
-      #       NODE_ENV: production
-      #     command: yarn ci:tsconfig
-      # - run:
-      #     name: Build
-      #     command: yarn build
-      # - run:
-      #     name: Deploy to Production
-      #     command: |
-      #       ls -asl
-      #       scp -o StrictHostKeyChecking=no -r ./ ${SSH_USER}@${SSH_LOCATION}:${SSH_PROJECT_DIR}
+            ls -asl
+            scp -o StrictHostKeyChecking=no $(pwd) ${SSH_USER}@${SSH_LOCATION}:${SSH_PROJECT_DIR}
