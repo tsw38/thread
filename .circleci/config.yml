@@ -7,39 +7,41 @@ jobs:
     docker:
       - image: 'node:12.18.3'
     steps:
-      - run: ls -asl
       - checkout
-      - run: node --version
-      - run: yarn --version
       - run:
-          name: Install Modules
-          command: yarn install
-      - run:
-          name: Ensure JSX Mode | React
-          environment:
-            NODE_ENV: test
-          command: yarn ci:tsconfig
-      - run:
-          name: Test
-          command: yarn test
-          environment:
-            NODE_OPTIONS: --max_old_space_size=8000
-            NODE_ENV: test
-      - run:
-          name: Upload Coverage
-          command: yarn coverage:upload
-      - run:
-          name: Ensure JSX Mode | Preserve
-          environment:
-            NODE_ENV: production
-          command: yarn ci:tsconfig
-      - run:
-          name: Build
-          command: yarn build
-      - run:
-          name: Deploy to Production
+          name: tempting fate
           command: |
-            ls -asl
-            # echo ${SSH_LOCATION}
-            # echo ${SSH_PROJECT_DIR}
-            scp -o StrictHostKeyChecking=no -r ./ ${SSH_USER}@${SSH_LOCATION}:${SSH_PROJECT_DIR}
+            cd ../;
+            ls -asl;
+      # - run: node --version
+      # - run: yarn --version
+      # - run:
+      #     name: Install Modules
+      #     command: yarn install
+      # - run:
+      #     name: Ensure JSX Mode | React
+      #     environment:
+      #       NODE_ENV: test
+      #     command: yarn ci:tsconfig
+      # - run:
+      #     name: Test
+      #     command: yarn test
+      #     environment:
+      #       NODE_OPTIONS: --max_old_space_size=8000
+      #       NODE_ENV: test
+      # - run:
+      #     name: Upload Coverage
+      #     command: yarn coverage:upload
+      # - run:
+      #     name: Ensure JSX Mode | Preserve
+      #     environment:
+      #       NODE_ENV: production
+      #     command: yarn ci:tsconfig
+      # - run:
+      #     name: Build
+      #     command: yarn build
+      # - run:
+      #     name: Deploy to Production
+      #     command: |
+      #       ls -asl
+      #       scp -o StrictHostKeyChecking=no -r ./ ${SSH_USER}@${SSH_LOCATION}:${SSH_PROJECT_DIR}
