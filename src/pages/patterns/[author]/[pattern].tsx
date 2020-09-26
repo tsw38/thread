@@ -13,7 +13,7 @@ import styles from 'styles/pages/Pattern.module.scss'
 // import usePatternState, {getInitialState} from '../../../state/patterns.state'
 
 import API from 'utils/api'
-import {unixToMonthYear} from '../utils/Date';
+import {unixToMonthYear} from 'utils/Date';
 
 const query = ({title, author}) => ({
     pattern: {
