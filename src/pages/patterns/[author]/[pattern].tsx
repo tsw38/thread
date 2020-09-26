@@ -13,6 +13,7 @@ import styles from 'styles/pages/Pattern.module.scss'
 // import usePatternState, {getInitialState} from '../../../state/patterns.state'
 
 import API from 'utils/api'
+import {unixToMonthYear} from '../utils/Date';
 
 const query = ({title, author}) => ({
     pattern: {
@@ -174,7 +175,7 @@ export default function UserPattern({API, patternData, ...props}) {
                                         Published date
                                     </span>
                                     <span className={styles.detailValue}>
-                                        {patternData.publicationDate}
+                                        {unixToMonthYear(patternData.publicationDate)}
                                     </span>
                                 </li>
                                 <li className={styles.listItem}>
