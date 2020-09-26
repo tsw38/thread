@@ -1,9 +1,7 @@
+import React, {useEffect} from 'react'
 import {NextSeo} from 'next-seo'
 import {useRouter} from 'next/router'
-import React, {useEffect, useState} from 'react'
 
-// import {Logo} from 'components/Icon'
-// import Grid from 'components/Masonry/Masonry'
 import Hero from 'components/Hero/Hero'
 import {Flag} from 'components/common/Icon'
 import Button from 'components/common/Button'
@@ -12,7 +10,7 @@ import {Container, Column} from 'components/common/Layout'
 import ImageGallery from 'components/common/ImageGallery/ImageGallery'
 
 import styles from 'styles/pages/Pattern.module.scss'
-import usePatternState, {getInitialState} from '../../../state/patterns.state'
+// import usePatternState, {getInitialState} from '../../../state/patterns.state'
 
 import API from 'utils/api'
 
@@ -50,16 +48,16 @@ const query = ({title, author}) => ({
         },
     },
 })
+
 export default function UserPattern({API, patternData, ...props}) {
     const router = useRouter()
     const {author, pattern} = router.query
 
-    // console.warn('ehhlo', patternData)
-    // TODO: dont know if I need this
-    // const [patterns, {getPattern}] = usePatternState(
-    //     getInitialState(props.patterns),
-    //     API
-    // )
+    useEffect(() => {
+        if (!Object.keys(patternData).length){
+            router.back();
+        }
+    })
 
     const downloadPattern = () => {
         // TODO: downloading, may not always want to open pdf
@@ -77,7 +75,7 @@ export default function UserPattern({API, patternData, ...props}) {
                     />
                     <Hero
                         author={patternData.author}
-                        img={patternData.images.find((image) => image.primary)}
+                        img={patternData?.images?.find((image) => image.primary)}
                         title={patternData.title}
                     />
                     <Container columns={2}>
@@ -99,7 +97,7 @@ export default function UserPattern({API, patternData, ...props}) {
                                     href={patternData.originalSource?.url}
                                     className={styles.originalSource}
                                 >
-                                    {patternData.originalSource.name}
+                                    {patternData?.originalSource?.name}
                                 </a>
                             </div>
                         </Column>
@@ -127,7 +125,7 @@ export default function UserPattern({API, patternData, ...props}) {
                                         Languages
                                     </h6>
                                     <div className={styles.gridRow}>
-                                        {patternData.languages.map((flag) => (
+                                        {patternData?.languages?.map((flag) => (
                                             <Flag
                                                 name={flag}
                                                 key={flag}
@@ -240,7 +238,10 @@ export const getServerSideProps = async ({query: {author, pattern}}) => {
 
     axios.create({isServer: true})
 
-    const patternData = await axios.get({
+    const patternData: {
+        author?: string
+        title?: string
+    } = await axios.get({
         query: query({title: pattern, author}),
     })
 
@@ -248,7 +249,7 @@ export const getServerSideProps = async ({query: {author, pattern}}) => {
 
     return {
         props: {
-            patternData,
+            patternData: (patternData.author && patternData.title) ? patternData : {},
             navigation: {
                 color: 'tapestry',
             },

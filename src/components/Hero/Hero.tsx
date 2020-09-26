@@ -21,7 +21,7 @@ export interface HeroProps {
     author: string
 }
 
-const Hero: React.FC<HeroProps> = ({img, title, author}) => (img.src && author && title) ? (
+const Hero: React.FC<HeroProps> = ({img, title, author}) => (img?.src && author && title) ? (
     <div data-testid="Hero" className={styles.Hero} style={{backgroundImage: `url(${img.src})`}}>
         <h1 className={styles.TextWrapper}>
             <span className={styles.Title}>{title}</span>

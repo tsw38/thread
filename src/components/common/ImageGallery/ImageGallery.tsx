@@ -16,7 +16,7 @@ export interface ImageGalleryProps {
 }
 
 const ImageGallery: React.FC<ImageGalleryProps> = ({images, className}) => {
-    if (!images.length || !images.some(image => image.primary)) {
+    if (!images?.length || !images?.some(image => image.primary)) {
         return null;
     }
 
