@@ -45,6 +45,10 @@ module.exports = {
                     loader: 'sass-loader',
                     options: {
                         sourceMap: true,
+                        sassOptions: {
+                            indentWidth: 4,
+                            includePaths: ['node_modules'],
+                        },
                     },
                 },
             ],
