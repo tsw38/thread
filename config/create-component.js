@@ -53,7 +53,7 @@ export interface ${component}Props {
 
 const ${component}: React.FC<${component}Props> = ({
     ...props
-}) => <div data-testid={${component}} className={styles.${component}}></div>;
+}) => <div data-testid="${component}" className={styles.${component}}></div>;
 
 export default ${component};
 `
@@ -86,7 +86,7 @@ export const Default = (args) => <${component}Component {...args} />
 }
 
 const run = () => {
-    if (process.env.ENV !== 'dev') {
+    if (process.env.NODE_ENV !== 'development') {
         throw new Error('Please run this via npm')
     }
 
@@ -115,11 +115,12 @@ const run = () => {
 try {
     run()
 } catch (err) {
+    console.log(err.message)
     console.log(
         `${err.message}:`,
         colors.green(
-            `npm run create-component ${process.argv
-                .slice(process.argv.indexOf('--'))
+            `npm run create-component -- ${process.argv
+                .slice(process.argv.indexOf('--') - 1)
                 .join(' ')}`
         ),
         '\n'

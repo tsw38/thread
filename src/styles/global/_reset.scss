@@ -49,11 +49,17 @@ table {
 }
 
 code {
-	padding: 4px !important;
+	font-size: 12px !important;
+	font-family: monospace !important;
 	color: var(--tuna);
+	padding: 4px !important;
 	background-color: var(--bizarre);
 	border: 1px solid var(--tapestry);
-	border-radius: 5px;
-	font-family: monospace !important;
-	font-size: 12px !important;
+	border-radius: var(--border-radius);
+}
+
+input {
+	&:focus {
+		outline: none;
+	}
 }

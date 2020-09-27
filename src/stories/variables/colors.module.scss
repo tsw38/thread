@@ -14,12 +14,12 @@ $colors: bianca, bizarre, manz, atomic_tangerine, tickle_me_pink, corduroy, tape
     align-items: center;
 
     .Background {
-        height: 20px;
         width: 75%;
-        border: 1px solid var(--tuna);
-        border-radius: 10px;
-        background-color: var(--tuna);
+        height: 20px;
         margin-bottom: 10px;
+        border: 1px solid var(--tuna);
+        background-color: var(--tuna);
+        border-radius: var(--border-radius);
     }
 
     @each $color in $colors {

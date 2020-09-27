@@ -10,7 +10,7 @@ $colors: bianca, bizarre, manz, atomic_tangerine, tickle_me_pink, corduroy, tape
     padding: 0.5rem;
     line-height: 1;
     border: 2px solid transparent;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
 
 
     &:focus {

@@ -14,10 +14,10 @@
         width: 20.2rem;
         position:relative;
         overflow: hidden;
-        border-radius: 0.25rem;
         background-size: cover;
-        background-repeat: no-repeat;
         background-position: center;
+        background-repeat: no-repeat;
+        border-radius: var(--border-radius);
 
         @include media(">=tablet", "<=desktop") {
             width: 14.8rem;

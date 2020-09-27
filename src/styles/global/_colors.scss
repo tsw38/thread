@@ -25,5 +25,6 @@
     @include createVariables(tuna, 240, 8%, 20%);              // hsl(240, 8%, 20%))
 
     --primary: var(--tapestry);
+    --error: var(--maroon_flush);
     --border: 1px solid #{darken(--bianca, 5%)};
 }

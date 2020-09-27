@@ -7,6 +7,8 @@ import Document, {
     DocumentContext,
 } from 'next/document'
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 class MyDocument extends Document {
     static async getInitialProps(ctx: DocumentContext) {
         const initialProps = await Document.getInitialProps(ctx)
@@ -18,7 +20,7 @@ class MyDocument extends Document {
             <Html>
                 <Head>
                     <link rel="icon" href="/favicon.svg" />
-                    {process.env.ENV !== 'dev' && (
+                    {isProduction && (
                         <>
                             <script
                                 async
