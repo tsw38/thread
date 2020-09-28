@@ -3,9 +3,11 @@ import React, {ReactNode} from 'react'
 import { useFormContext } from "react-hook-form";
 import {TextInput} from 'carbon-components-react'
 
-import styles from './Input.module.scss'
+import styles from './TextInput.module.scss'
 
 export interface InputProps {
+    // Specifies the serialized field value being stored
+    name?: string
     // Specify an optional className to be applied to the <input> node
     className?: string
     // Optionally provide the default value of the <input>
@@ -56,14 +58,15 @@ const Input: React.FC<InputProps> = (props) => {
     return (
         <TextInput
             {...props}
-            data-testid="Input"
+            name={props.name || props.id}
+            data-testid="TextInput"
             ref={register}
             labelText={
                 <span className={styles.FormLabel}>
                     {props.labelText}
                 </span>
             }
-            className={classNames(styles.Input, props.className)}
+            className={classNames(styles.TextInput, props.className)}
         />
     );
 };

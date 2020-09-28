@@ -76,7 +76,7 @@ html {
   	-moz-osx-font-smoothing: grayscale;
 }
 
-code {
+code, details {
 	font-size: 12px !important;
 	font-family: monospace !important;
 	color: var(--tuna);
@@ -84,6 +84,28 @@ code {
 	background-color: var(--bizarre);
 	border: 1px solid var(--tapestry);
 	border-radius: var(--border-radius);
+}
+
+details {
+	margin-bottom: 1rem;
+	opacity: 0.4;
+
+	span {
+		display: block;
+		margin-left: 0.5rem;
+	}
+
+	&:hover {
+		opacity: 1;
+	}
+
+	&[open] {
+		summary {
+			margin-bottom: 1rem;
+
+
+		}
+	}
 }
 
 input {

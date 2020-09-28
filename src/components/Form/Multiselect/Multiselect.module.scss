@@ -1,0 +1,59 @@
+@import '../../../styles/global/mixins/';
+
+.Multiselect {
+    background-color: lighten(--tapestry, 40%);
+
+    &:hover {
+        background-color: lighten(--tapestry, 35%);
+    }
+
+    input {
+
+        border-bottom-color: var(--tapestry);
+        border-radius: var(--border-radius);
+
+        &::placeholder,
+        &::-webkit-input-placeholder,
+        &::-moz-placeholder,
+        &:-ms-input-placeholder,
+        &:-moz-placeholder {
+            color: var(--tapestry);
+        }
+
+        &:focus {
+            outline-color: var(--tapestry);
+        }
+    }
+
+    :global(.bx--list-box__label) {
+        color: darken(--tapestry, 15%);
+    }
+
+    :global(.bx--list-box__selection--multi) {
+        background-color: var(--tapestry);
+    }
+
+    :global(.bx--list-box__menu-item) {
+        background-color: lighten(--tapestry, 40%);
+    }
+
+    :global(.bx--list-box__menu-item--active) {
+        background-color: lighten(--tapestry, 30%);
+    }
+
+    :global(.bx--checkbox-label[data-contained-checkbox-state='true']::before) {
+        background-color: var(--tapestry);
+        border-color: var(--tapestry);
+    }
+
+    :global(.bx--list-box__menu:focus) {
+        outline-color: var(--tapestry);
+    }
+
+
+    // :global(bx--multi-select _3BUIBdqQPA-9wTMGdJM6wR _1dYyPeZllRYQOa0lXm9V9u bx--list-box) {
+    //     .bx--list-box__menu-item--highlighted {
+    //         background-color: orange;
+    //     }
+    // }
+}

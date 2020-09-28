@@ -1,13 +1,16 @@
 @import '../../../styles/global/mixins/';
 
-
-.Input {
+.TextInput {
     background-color: lighten(--tapestry, 40%);
     border-bottom-color: var(--tapestry);
     border-radius: var(--border-radius);
 
     &:focus {
         outline-color: var(--tapestry);
+    }
+
+    &:hover {
+        background-color: lighten(--tapestry, 35%);
     }
 }
 

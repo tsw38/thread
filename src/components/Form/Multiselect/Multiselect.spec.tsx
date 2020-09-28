@@ -5,9 +5,9 @@ import '@testing-library/jest-dom'
 
 import {render, fireEvent, screen} from '@testing-library/react'
 
-import Input from './Input';
+import Multiselect from './Multiselect';
 
-describe('Input', () => {
+describe('Multiselect', () => {
     it('renders properly', () => {
         expect(true).toBeTruthy();
     })

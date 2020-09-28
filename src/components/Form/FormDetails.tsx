@@ -9,7 +9,7 @@ const FormDetails: React.FC<FormDetailsProps> = ({ watch }) => {
 
     return (
         process.env.NODE_ENV !== 'production' && (
-            <details>
+            <details open>
                 <summary>Details</summary>
                 <pre>{JSON.stringify(watch(), null, 4)}</pre>
             </details>
