@@ -10,7 +10,6 @@ import {Container, Column} from 'components/common/Layout'
 import ImageGallery from 'components/common/ImageGallery/ImageGallery'
 
 import styles from 'styles/pages/Pattern.module.scss'
-// import usePatternState, {getInitialState} from '../../../state/patterns.state'
 
 import API from 'utils/api'
 import {unixToMonthYear} from 'utils/Date';

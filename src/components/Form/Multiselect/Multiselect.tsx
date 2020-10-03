@@ -8,15 +8,13 @@ import textStyles from '../TextInput/TextInput.module.scss'
 import styles from './Multiselect.module.scss';
 
 export interface MultiselectProps {
-    id: string,
-    name: string,
-    items: Array<any>
-    labelText: string,
-    placeholder: string,
-    itemToString?: (item) => string
+    id: string
+    name?: string
+    labelText: string
+    defaultValue?: any
+    placeholder: string
+    items: Array<{label: string, id: string}>
 }
-
-const getText = ({ text }) => text
 
 const Multiselect: React.FC<MultiselectProps> = (props) => {
     const [placeholder, setPlaceholder] = useState(props.placeholder);
@@ -33,7 +31,8 @@ const Multiselect: React.FC<MultiselectProps> = (props) => {
             <Controller
                 controller={register}
                 name={props.name || props.id}
-                render={({ onChange, onBlur, value, name }) => (
+                defaultValue={props.defaultValue || ''}
+                render={({onChange, onBlur, value, name}) => (
                     <MultiSelectInput
                         {...props}
                         useTitleInItem={false}
@@ -43,36 +42,12 @@ const Multiselect: React.FC<MultiselectProps> = (props) => {
                             styles.Multiselect
                         )}
                         label={placeholder}
-                        titleText={
-                            <span className={textStyles.FormLabel}>
-                                {props.labelText}
-                            </span>
-                        }
-                    // name={props.name || props.id}
-                    // always pass labels within the items
-                    // itemToString={props.itemToString || getText}
+                        titleText={props.labelText}
                     />
-                )} />
+                )}
+            />
         </div>
     )
 }
 
 export default Multiselect;
-
-
-// useTitleInItem = { false}
-// label = "MultiSelect Label"
-// invalid = { false}
-// invalidText = "Invalid Selection"
-// onChange = { onChange }
-// items = {
-//     [
-//     { id: 'item-1', text: 'Item 1' },
-//     { id: 'item-2', text: 'Item 2' },
-//   ]}
-// itemToString = { itemToString }
-// initialSelectedItems = {
-//     [
-//     { id: 'item-1', text: 'Item 1' },
-//     { id: 'item-2', text: 'Item 2' },
-//   ]}

@@ -172,3 +172,13 @@ a {
     --bold: 600;
     --black: 900;
 }
+
+.bx--label {
+    line-height: 1.29;
+    color: var(--tuna);
+    font-size: .875rem;
+    margin-bottom: .5rem;
+    font-family: Overpass;
+    letter-spacing: .16px;
+    font-weight: var(--bold);
+}

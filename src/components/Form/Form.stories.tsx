@@ -6,6 +6,7 @@ import Input from './TextInput/TextInput';
 import FormGroup from './FormGroup';
 import Textarea from './Textarea/Textarea';
 import Multiselect from './Multiselect/Multiselect';
+import FileUploader from './FileUploader/FileUploader';
 
 
 // uncommment this line to include styles only for the story
@@ -15,13 +16,14 @@ export default {
     title: 'Form/Form',
     component: FormComponent,
     subcomponents: {
-        Input
+        Input, Multiselect, Textarea
     }
 } as Meta;
 
 export const Default = (args) => {
     return (
         <FormComponent {...args}>
+            <FileUploader id="primaryImage" fileTypes={['.jpeg', '.jpg', '.png']} labelText="Primary Image" buttonText="Add Primary Image" helperText="only .jp(e)g or .png files at 50mb or less" />
             <Multiselect name="languages" labelText="Languages" id="languages" placeholder="Select languages" items={[{
                 id: 'usa',
                 label: 'English (US)'
@@ -41,6 +43,7 @@ export const Default = (args) => {
             <Input type="password" id="password" name="password" labelText="Password" />
 
             <Textarea id="notes" labelText="Additional Notes" />
+            <Textarea id="description" labelText="Pattern Description" />
         </FormComponent>
     )
 }

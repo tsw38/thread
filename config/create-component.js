@@ -41,10 +41,15 @@ describe('${component}', () => {
     )
 }
 
-const createComponentFile = ({path, component}) => {
+const createComponentFile = ({path, component, isCarbonComponent}) => {
     const componentTemplate = `
 import React from 'react';
 import classNames from 'classnames';
+${
+    isCarbonComponent
+        ? 'import {' + component + "} from 'carbon-components-react';"
+        : ''
+}
 
 import styles from './${component}.module.scss';
 
@@ -90,7 +95,7 @@ const run = () => {
         throw new Error('Please run this via npm')
     }
 
-    const {destination, component} = commandLineArgs([
+    const {destination, component, carbonComponent} = commandLineArgs([
         {name: 'component', alias: 'c', type: String},
         {
             name: 'destination',
@@ -98,11 +103,13 @@ const run = () => {
             type: String,
             defaultValue: defaultDestination,
         },
+        {name: 'carbonComponent', alias: 'C', type: Boolean},
     ])
 
     const componentArgs = {
         path: `${destination}/${component}`,
         component,
+        isCarbonComponent: carbonComponent,
     }
 
     createNewDir(componentArgs)

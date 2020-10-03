@@ -5,7 +5,9 @@ import { useFormContext } from "react-hook-form";
 import { TextArea } from 'carbon-components-react'
 
 import {InputProps} from '../TextInput/TextInput';
-import styles from '../TextInput/TextInput.module.scss';
+
+import formStyles from '../../Form/Form.module.scss'
+import styles from '../TextInput/TextInput.module.scss'
 
 export interface TextareaProps extends InputProps {
     cols?: number
@@ -21,7 +23,7 @@ const Textarea: React.FC<TextareaProps> = (props) => {
             data-testid="Textarea"
             name={props.name || props.id}
             labelText={
-                <span className={styles.FormLabel}>
+                <span className={formStyles.FormLabel}>
                     {props.labelText}
                 </span>
             }

@@ -34,10 +34,12 @@ export default class API {
         })
     }
     // https://www.npmjs.com/package/json-to-graphql-query
-    toQuery = (query) => {
-        //TODO: Figure out variables
-        return jsonToGraphQLQuery({query}, {pretty: false})
+    toQuery = (query, isMutation = false) => {
+        return jsonToGraphQLQuery({
+            [isMutation ? 'mutation' : 'query']: query
+        }, {pretty: false})
     }
+
 
     getOperationName = (query) => {
         if (Object.keys(query).length !== 1) {
@@ -55,8 +57,6 @@ export default class API {
         }
 
         const operationName = this.getOperationName(query)
-
-        // console.warn(data);
 
         return (
             data.data?.[operationName]?.[operationName] ??
@@ -152,13 +152,89 @@ export default class API {
         })
     }
 
-    download(url) {
-        return new Promise(resolve => {
-            console.log(url);
-            // this.instance.get(url).then(resolve);
-            window.open(url);
+    post(args) {
+        const {
+            type,
+            mutation = {},
+            onError = (...args) => {},
+            onSuccess = (...args) => {},
+            onComplete = (...args) => {},
+            dispatch,
+        } = args
 
-            resolve();
+        if (!this.isServer) {
+            if (!type) {
+                throw new Error('Please provide a type for the dispatcher')
+            }
+
+            if (typeof dispatch !== 'function') {
+                throw new Error('Please provide this function with a dispatch')
+            }
+        }
+
+        if (!this.instance) {
+            throw new Error(
+                'You must have forgotten to create an instance, you can do that by calling API.create()'
+            )
+        }
+
+        if (!Object.keys(mutation).length) {
+            throw new Error(
+                'You must provide a mutation object with keys in this call'
+            )
+        }
+
+        let payload
+        let hasErrored = false
+
+        if (!this.isServer) {
+            dispatch({
+                type: `${type}_PENDING`,
+            })
+        }
+
+        console.warn({
+            mutation: this.toQuery(mutation, true),
         })
+
+        // return new Promise((resolve) => {
+        //     this.instance
+        //         .post(isProd ? '/' : '/api', {
+        //             mutation: this.toQuery(mutation, true),
+        //         })
+        //         .then(this.massage(mutation))
+        //         .then((data) => {
+        //             onSuccess(data)
+        //             payload = data
+
+        //             return payload
+        //         })
+        //         .catch((data) => {
+        //             onError(data)
+        //             payload = data
+        //             hasErrored = true
+
+        //             return data
+        //         })
+        //         .finally(() => {
+        //             onComplete()
+
+        //             if (!this.isServer) {
+        //                 dispatch({
+        //                     type: `${type}_${
+        //                         hasErrored ? 'FAILURE' : 'SUCCESS'
+        //                     }`,
+        //                     payload,
+        //                 })
+
+        //                 // console.log(payload);
+        //             }
+
+        //             // console.log('what is the payload', payload)
+
+        //             resolve(payload)
+        //             payload = null
+        //         })
+        // })
     }
 }

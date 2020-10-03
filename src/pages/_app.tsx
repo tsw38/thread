@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import Link from 'components/common/Link/Link';
 import Navigation, {Footer} from 'components/Navigation'
 
@@ -13,6 +14,12 @@ axios.create()
 function MyApp({Component, pageProps}) {
     return (
         <>
+            <Head>
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+                />
+            </Head>
             <Navigation {...pageProps?.navigation} API={axios} />
             <main>
                 <Component

@@ -1,11 +1,15 @@
 import React, { ReactNode } from 'react'
 
 export interface FormDetailsProps {
+    logWatch?: boolean,
     watch: () => {}
 }
 
-const FormDetails: React.FC<FormDetailsProps> = ({ watch }) => {
-    console.log(watch());
+const FormDetails: React.FC<FormDetailsProps> = ({ watch, logWatch}) => {
+
+    if (logWatch) {
+        console.log(watch());
+    }
 
     return (
         process.env.NODE_ENV !== 'production' && (

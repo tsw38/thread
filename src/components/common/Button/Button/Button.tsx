@@ -2,13 +2,15 @@ import React from 'react'
 import classNames from 'classnames'
 
 import styles from './Button.module.scss'
-import ColorType from '../../../../types/color';
+import ColorType from '../../../../types/color'
 
 export interface ButtonProps {
+    inLabel?: boolean
     disabled?: boolean
     className?: string
+    color?: ColorType['color']
+    type?: 'button' | 'submit' | 'reset'
     onClick?: MouseEvent | (() => void)
-    color?: ColorType['color'],
     children: React.ReactNode | string
 }
 
@@ -17,20 +19,25 @@ const unimplementedClick = () => {
 }
 
 const Button: React.FC<ButtonProps> = ({
+    inLabel,
     color = 'tapestry',
     className,
     children,
     disabled,
     onClick,
+    type = 'button',
 }) => (
     <button
+        type={type}
         disabled={disabled}
-        onClick={typeof onClick === 'function' ? onClick : unimplementedClick}
+        {...(type === 'button' && !inLabel ? {
+            onClick: typeof onClick === 'function' ? onClick : unimplementedClick
+        } : {})}
         className={classNames(styles.Button, styles[`Button--${color}`], {
             [styles['Button--hover']]: className === 'hover',
             [styles['Button--click']]: className === 'click',
             [styles['Button--disabled']]: disabled,
-            [className]: !['hover', 'click'].includes(className)
+            [className]: !['hover', 'click'].includes(className),
         })}
     >
         {children}

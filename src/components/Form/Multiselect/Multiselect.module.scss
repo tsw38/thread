@@ -26,7 +26,7 @@
     }
 
     :global(.bx--list-box__label) {
-        color: darken(--tapestry, 15%);
+        color: var(--tapestry);
     }
 
     :global(.bx--list-box__selection--multi) {
@@ -49,11 +49,4 @@
     :global(.bx--list-box__menu:focus) {
         outline-color: var(--tapestry);
     }
-
-
-    // :global(bx--multi-select _3BUIBdqQPA-9wTMGdJM6wR _1dYyPeZllRYQOa0lXm9V9u bx--list-box) {
-    //     .bx--list-box__menu-item--highlighted {
-    //         background-color: orange;
-    //     }
-    // }
 }
